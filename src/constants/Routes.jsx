@@ -2,6 +2,7 @@ import React, { Suspense } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { appLinks } from "./links";
 import Navbar from "../layouts/Navbar";
+import Footer from "../layouts/Footer";
 
 const Dashboard = React.lazy(() => import("../pages/Dashboard"));
 const Orders = React.lazy(() => import("../pages/Orders"));
@@ -38,6 +39,7 @@ function BaseRouter() {
             <Route path={appLinks.Books} element={<Books />} />
             <Route path={`/orders/:id/detail`} element={<OrdersDetail />} />
           </Routes>
+          <Footer />
         </Suspense>
       </Router>
     </>

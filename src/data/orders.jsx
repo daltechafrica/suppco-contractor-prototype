@@ -427,7 +427,7 @@ const orders = [
     },
   },
   {
-    id: 2,
+    id: 8,
     status: "Completed",
     created: "2022-03-02 12:03:45",
     employee: "Employee 2",
@@ -478,7 +478,7 @@ const orders = [
     },
   },
   {
-    id: 3,
+    id: 9,
     status: "Completed",
     created: "2022-03-02 12:03:45",
     employee: "Employee 3",
