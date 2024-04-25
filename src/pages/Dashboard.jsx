@@ -3,7 +3,7 @@ import Hero from "../components/dashboard/Hero";
 
 function Dashboard() {
   return <>
-  <Hero />
+  <div className="container"></div>
   </>;
 }
 
