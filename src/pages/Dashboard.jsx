@@ -2,6 +2,7 @@ import React from "react";
 import OrderSection from "../components/dashboard/OrderSection";
 import PaymentSection from "../components/dashboard/PaymentSection";
 import Avatar from "../assets/images/canvas/avatar.jpg";
+import OrderListSection from "../components/dashboard/OrderListSection";
 
 function Dashboard() {
   return (
@@ -54,8 +55,9 @@ function Dashboard() {
           <div className="col-md-9 col-sm-12 mb-2">
             <h4 className="fw-bold">Dashboard</h4>
             <hr className="w-100" />
-            <OrderSection />
             <PaymentSection />
+            <OrderSection />
+            <OrderListSection />
           </div>
         </div>
       </div>
