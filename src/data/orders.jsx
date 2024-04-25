@@ -18,6 +18,7 @@ const orders = [
     paymentDetail: {
       price: 100,
       plan: "Fixed - 50/50",
+      method: "Bank Transfer",
       quantity: 2000,
       hours: null,
       get total() {
@@ -69,6 +70,7 @@ const orders = [
     paymentDetail: {
       price: 500,
       plan: "Fixed - upfront",
+      method: "Bank Transfer",
       quantity: 5,
       hours: null,
       get total() {
@@ -120,6 +122,7 @@ const orders = [
     paymentDetail: {
       price: 1000,
       plan: "Negotiable Plan",
+      method: "Bank Transfer",
       quantity: null,
       hours: 36,
       get total() {
@@ -205,6 +208,7 @@ const orders = [
     paymentDetail: {
       price: 100,
       plan: "Fixed - 50/50",
+      method: "Bank Transfer",
       quantity: 200,
       hours: null,
       get total() {
@@ -256,6 +260,7 @@ const orders = [
     paymentDetail: {
       price: 500,
       plan: "Fixed - upfront",
+      method: "Bank Transfer",
       quantity: 10,
       hours: null,
       get total() {
@@ -307,6 +312,7 @@ const orders = [
     paymentDetail: {
       price: 10000,
       plan: "Negotiable Plan",
+      method: "Bank Transfer",
       quantity: null,
       hours: 36,
       get total() {
@@ -392,6 +398,7 @@ const orders = [
     paymentDetail: {
       price: 100,
       plan: "Fixed - 50/50",
+      method: "Bank Transfer",
       quantity: 200,
       hours: null,
       get total() {
@@ -443,6 +450,7 @@ const orders = [
     paymentDetail: {
       price: 500,
       plan: "Fixed - upfront",
+      method: "Bank Transfer",
       quantity: 5,
       hours: null,
       get total() {
@@ -494,6 +502,7 @@ const orders = [
     paymentDetail: {
       price: 1000,
       plan: "Negotiable Plan",
+      method: "Bank Transfer",
       quantity: null,
       hours: 36,
       get total() {
