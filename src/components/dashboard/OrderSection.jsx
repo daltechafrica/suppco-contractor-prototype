@@ -1,8 +1,20 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { appLinks } from "../../constants/links";
+import { orders } from "../../data/orders";
 
 function OrderSection() {
+  const completedOrders = orders.filter(
+    (order) => order.status === "Completed"
+  );
+  const completedOrdersCount = completedOrders.length;
+
+  const activeOrders = orders.filter((order) => order.status === "Active");
+  const activeOrdersCount = activeOrders.length;
+
+  const pendingOrders = orders.filter((order) => order.status === "Pending");
+  const pendingOrdersCount = pendingOrders.length;
+
   return (
     <>
       <section className="px-2 mb-2">
@@ -17,7 +29,7 @@ function OrderSection() {
             <div className="card">
               <h6 className="card-header bg-white">Pending Orders</h6>
               <div className="card-body">
-                <p className="card-text fw-bold">0 orders</p>
+                <p className="card-text fw-bold">{pendingOrdersCount} orders</p>
               </div>
             </div>
           </div>
@@ -25,7 +37,7 @@ function OrderSection() {
             <div className="card">
               <h6 className="card-header bg-white">Active Orders</h6>
               <div className="card-body">
-                <p className="card-text fw-bold">0 orders</p>
+                <p className="card-text fw-bold">{activeOrdersCount} orders</p>
               </div>
             </div>
           </div>
@@ -33,7 +45,9 @@ function OrderSection() {
             <div className="card">
               <h6 className="card-header bg-white">Completed Orders</h6>
               <div className="card-body">
-                <p className="card-text fw-bold">0 orders</p>
+                <p className="card-text fw-bold">
+                  {completedOrdersCount} orders
+                </p>
               </div>
             </div>
           </div>

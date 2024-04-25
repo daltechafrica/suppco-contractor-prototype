@@ -1,8 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { appLinks } from "../../constants/links";
+import { orders } from "../../data/orders";
 
 function PaymentSection() {
+  const completedOrders = orders.filter(
+    (order) => order.status === "Completed"
+  );
+  const totalCompletedOrdersAmount = completedOrders.reduce(
+    (sum, order) => sum + order.finalTotal,
+    0
+  );
+
+  const activeOrders = orders.filter((order) => order.status === "Active");
+  const totalActiveOrdersAmount = activeOrders.reduce(
+    (sum, order) => sum + order.finalTotal,
+    0
+  );
+
+  const pendingOrders = orders.filter((order) => order.status === "Pending");
+  const totalPendingOrdersAmount = pendingOrders.reduce(
+    (sum, order) => sum + order.finalTotal,
+    0
+  );
   return (
     <>
       <section className="px-2">
@@ -17,7 +37,9 @@ function PaymentSection() {
             <div className="card">
               <h6 className="card-header bg-white">Pending Payments</h6>
               <div className="card-body">
-                <p className="card-text fw-bold">0 Ksh</p>
+                <p className="card-text fw-bold">
+                  {totalPendingOrdersAmount} Ksh
+                </p>
               </div>
             </div>
           </div>
@@ -25,7 +47,9 @@ function PaymentSection() {
             <div className="card">
               <h6 className="card-header bg-white">Active Payments</h6>
               <div className="card-body">
-                <p className="card-text fw-bold">0 Ksh</p>
+                <p className="card-text fw-bold">
+                  {totalActiveOrdersAmount} Ksh
+                </p>
               </div>
             </div>
           </div>
@@ -33,7 +57,9 @@ function PaymentSection() {
             <div className="card">
               <h6 className="card-header bg-white">Completed Payments</h6>
               <div className="card-body">
-                <p className="card-text fw-bold">0 Ksh</p>
+                <p className="card-text fw-bold">
+                  {totalCompletedOrdersAmount} Ksh
+                </p>
               </div>
             </div>
           </div>

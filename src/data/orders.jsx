@@ -1,3 +1,5 @@
+// Concerns: does the breakdown plans deduct from the total amount?
+
 const orders = [
   {
     id: 1,
@@ -16,7 +18,7 @@ const orders = [
     paymentDetail: {
       price: 100,
       plan: "Fixed - 50/50",
-      quantity: 200,
+      quantity: 2000,
       hours: null,
       get total() {
         return this.price * this.quantity;
