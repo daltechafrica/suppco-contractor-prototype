@@ -120,7 +120,7 @@ const orders = [
       lease: "wet",
     },
     paymentDetail: {
-      price: 1000,
+      price: 134000,
       plan: "Negotiable Plan",
       method: "Bank Transfer",
       quantity: null,
