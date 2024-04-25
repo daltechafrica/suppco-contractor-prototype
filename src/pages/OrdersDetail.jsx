@@ -410,6 +410,9 @@ function OrdersDetail() {
                     <strong>Grand Total: </strong>
                     {order?.finalTotal} Ksh
                   </p>
+                  <p className="card-text fst-italic text-secondary">
+                    Invoice sent to your email
+                  </p>
                 </div>
               </div>
               {paymentDetail?.plan === "Negotiable Plan" &&
