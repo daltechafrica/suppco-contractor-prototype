@@ -13,7 +13,21 @@ function BaseRouter() {
   return (
     <>
       <Router>
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense
+          fallback={
+            <>
+              <div className="spinner-grow text-primary" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+              <div className="spinner-grow text-primary" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+              <div className="spinner-grow text-primary" role="status">
+                <span className="visually-hidden">Loading...</span>
+              </div>
+            </>
+          }
+        >
           <Navbar />
           <Routes>
             <Route exact path={appLinks.Dashboard} element={<Dashboard />} />
