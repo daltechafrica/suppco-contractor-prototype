@@ -11,6 +11,7 @@ const Inventory = React.lazy(() => import("../pages/Inventory"));
 const Books = React.lazy(() => import("../pages/Books"));
 const OrdersDetail = React.lazy(() => import("../pages/OrdersDetail"));
 const Employees = React.lazy(() => import("../pages/Employees"));
+const Sites = React.lazy(() => import("../pages/Sites"));
 
 function BaseRouter() {
   return (
@@ -40,6 +41,7 @@ function BaseRouter() {
             <Route path={appLinks.Books} element={<Books />} />
             <Route path={`/orders/:id/detail`} element={<OrdersDetail />} />
             <Route path={appLinks.Employees} element={<Employees />} />
+            <Route path={appLinks.Sites} element={<Sites />} />
           </Routes>
           <Footer />
         </Suspense>

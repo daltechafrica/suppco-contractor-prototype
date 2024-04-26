@@ -44,8 +44,13 @@ function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to={appLinks.Books}>
-                  Books
+                <Link className="nav-link" to={appLinks.Sites}>
+                  Sites
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to={appLinks.Inventory}>
+                  Inventory
                 </Link>
               </li>
               <li className="nav-item">
@@ -56,6 +61,11 @@ function Navbar() {
               <li className="nav-item">
                 <Link className="nav-link" to={appLinks.Delivery}>
                   Delivery
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to={appLinks.Books}>
+                  Books
                 </Link>
               </li>
               <li className="nav-item">
