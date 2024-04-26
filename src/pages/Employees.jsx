@@ -206,6 +206,7 @@ function Employees() {
             <table className="table table-bordered">
               <thead>
                 <tr>
+                  <th>ID</th>
                   <th>Name</th>
                   <th>Username</th>
                   <th>Email</th>
@@ -218,6 +219,7 @@ function Employees() {
               <tbody>
                 {filteredEmployees.map((employee) => (
                   <tr key={employee.id}>
+                    <td>{employee.id}</td>
                     <td>{employee.name}</td>
                     <td>{employee.username}</td>
                     <td>{employee.email}</td>

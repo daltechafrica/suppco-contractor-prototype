@@ -168,7 +168,7 @@ const orders = [
     },
     deliveryPlan: {
       option: "Supplier",
-      destination: "Site E",
+      destination: "Site C",
       pricing: "Distance",
       cost: 1000,
       status: "Pending",
@@ -358,7 +358,7 @@ const orders = [
     },
     deliveryPlan: {
       option: "Supplier",
-      destination: "Site E",
+      destination: "Site D",
       pricing: "Distance",
       cost: 1000,
       status: "Active",
@@ -548,7 +548,7 @@ const orders = [
     },
     deliveryPlan: {
       option: "Supplier",
-      destination: "Site E",
+      destination: "Site B",
       pricing: "Distance",
       cost: 1000,
       status: "Completed",

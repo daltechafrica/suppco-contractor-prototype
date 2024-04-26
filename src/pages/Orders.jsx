@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { appLinks } from "../constants/links";
 import { Link } from "react-router-dom";
+import { appLinks } from "../constants/links";
 import { orders } from "../data/orders";
 
 function Orders() {
@@ -32,6 +32,9 @@ function Orders() {
           .toLowerCase()
           .includes(searchQuery.toLowerCase()) ||
         order?.supplierCompany?.name
+          .toLowerCase()
+          .includes(searchQuery.toLowerCase()) ||
+        order?.deliveryPlan?.destination
           .toLowerCase()
           .includes(searchQuery.toLowerCase())
       )
@@ -167,30 +170,29 @@ function Orders() {
                   <th>Product</th>
                   <th>Supplier Name</th>
                   <th>Supplier Company</th>
+                  <th>Site</th>
                   <th>Date</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
                 {filteredData.map((item, index) => (
-                  <>
-                    <tr key={item.id}>
-                      <td>{item.id}</td>
-
-                      <td>{item.product}</td>
-                      <td>{item.supplierDetail.name}</td>
-                      <td>{item.supplierCompany.name}</td>
-                      <td>{item.created}</td>
-                      <td>
-                        <Link
-                          to={`/orders/${item.id}/detail`}
-                          className="btn btn-outline-primary btn-sm"
-                        >
-                          View
-                        </Link>
-                      </td>
-                    </tr>
-                  </>
+                  <tr key={item.id}>
+                    <td>{item.id}</td>
+                    <td>{item.product}</td>
+                    <td>{item.supplierDetail.name}</td>
+                    <td>{item.supplierCompany.name}</td>
+                    <td>{item.deliveryPlan.destination}</td>
+                    <td>{item.created}</td>
+                    <td>
+                      <Link
+                        to={`/orders/${item.id}/detail`}
+                        className="btn btn-outline-primary btn-sm"
+                      >
+                        View
+                      </Link>
+                    </td>
+                  </tr>
                 ))}
               </tbody>
             </table>
