@@ -6,6 +6,7 @@ import Modal from "react-bootstrap/Modal";
 
 function Employees() {
   const [show, setShow] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
@@ -13,6 +14,13 @@ function Employees() {
     setShow(false);
     alert("Employee Added and allocated to site");
   };
+
+  const filteredEmployees = employees.filter(
+    (employee) =>
+      employee.site.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      employee.role.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <>
       <div className="container py-3 mb-3">
@@ -23,8 +31,10 @@ function Employees() {
                 <i className="bi bi-arrow-left me-1"></i>
               </Link>
             </span>
-            Employees
+            Employees Section
           </h5>
+
+          {/* Buttons */}
           <div className="d-flex justify-content-around align-items-center">
             <Link
               onClick={() =>
@@ -169,13 +179,28 @@ function Employees() {
                   />
                 </div>
                 <div className="mb-3">
-                  <button className="btn btn-outline-success" type="submit" onClick={handleSubmit}>Save</button>
+                  <button
+                    className="btn btn-outline-success"
+                    type="submit"
+                    onClick={handleSubmit}
+                  >
+                    Save
+                  </button>
                 </div>
               </form>
             </div>
           </Modal>
         </section>
         <hr />
+
+        <section className="mb-3 col-md-4 col-sm-12">
+          <input
+            type="search"
+            className="form-control"
+            placeholder="Search by site or role..."
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </section>
         <section className="mb-3">
           <div className="table-responsive">
             <table className="table table-bordered">
@@ -191,18 +216,16 @@ function Employees() {
                 </tr>
               </thead>
               <tbody>
-                {employees?.map((employee) => (
-                  <>
-                    <tr key={employee.id}>
-                      <td>{employee.name}</td>
-                      <td>{employee.username}</td>
-                      <td>{employee.email}</td>
-                      <td>{employee.phone}</td>
-                      <td>{employee.address}</td>
-                      <td>{employee.role}</td>
-                      <td>{employee.site}</td>
-                    </tr>
-                  </>
+                {filteredEmployees.map((employee) => (
+                  <tr key={employee.id}>
+                    <td>{employee.name}</td>
+                    <td>{employee.username}</td>
+                    <td>{employee.email}</td>
+                    <td>{employee.phone}</td>
+                    <td>{employee.address}</td>
+                    <td>{employee.role}</td>
+                    <td>{employee.site}</td>
+                  </tr>
                 ))}
               </tbody>
             </table>
