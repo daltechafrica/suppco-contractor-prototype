@@ -4,6 +4,7 @@ const appLinks = {
     Delivery: "/delivery",
     Inventory: "/inventory",
     Books: "/books",
+    Employees: "/employees",
 }
 
 export {appLinks}

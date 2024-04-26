@@ -27,6 +27,34 @@ const employees = [
       plateReg: "DEF456",
     },
   },
+  {
+    id: 3,
+    name: "Employee 3",
+    username: "employee3",
+    email: "employee3@mail",
+    phone: "1234567890",
+    address: "123 Main St, Anytown, USA",
+    role: "Secretary",
+    driverDetail: {
+      license: null,
+      licenseExpiry: null,
+      plateReg: null,
+    },
+  },
+  {
+    id: 4,
+    name: "Employee 4",
+    username: "employee4",
+    email: "employee4@mail",
+    phone: "1234567890",
+    address: "123 Main St, Anytown, USA",
+    role: "Accountant",
+    driverDetail: {
+      license: null,
+      licenseExpiry: null,
+      plateReg: null,
+    },
+  },
 ];
 
 export { employees };

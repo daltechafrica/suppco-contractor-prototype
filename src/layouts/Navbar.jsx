@@ -58,6 +58,11 @@ function Navbar() {
                   Delivery
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to={appLinks.Employees}>
+                  Employees
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
