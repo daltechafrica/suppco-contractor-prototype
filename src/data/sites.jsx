@@ -1,6 +1,7 @@
 const sites = [
   {
     id: 1,
+    created: "2022-01-01",
     image:
       "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGNvbnN0cnVjdGlvbnxlbnwwfHwwfHx8MA%3D%3D",
     name: "Site A",
@@ -216,6 +217,7 @@ const sites = [
 
   {
     id: 2,
+    created: "2022-05-11",
     image:
       "https://images.unsplash.com/photo-1567954970774-58d6aa6c50dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8N3x8Y29uc3RydWN0aW9uJTIwc2l0ZXxlbnwwfHwwfHx8MA%3D%3D",
     name: "Site B",
@@ -499,6 +501,7 @@ const sites = [
   },
   {
     id: 3,
+    created: "2023-09-11",
     image:
       "https://images.unsplash.com/photo-1610459716431-e07abcf74230?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGNvbnN0cnVjdGlvbiUyMHNpdGV8ZW58MHx8MHx8fDA%3D",
     name: "Site C",
@@ -641,6 +644,7 @@ const sites = [
   },
   {
     id: 4,
+    created: "2022-11-01",
     image:
       "https://images.unsplash.com/photo-1591955506264-3f5a6834570a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Y29uc3RydWN0aW9uJTIwc2l0ZXxlbnwwfHwwfHx8MA%3D%3D",
     name: "Site D",
