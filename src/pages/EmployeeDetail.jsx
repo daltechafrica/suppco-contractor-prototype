@@ -178,6 +178,62 @@ function EmployeeDetail() {
               </>
             )}
 
+            <section>
+              <h6 className="fw-bold">Permissions and Responsibilities</h6>
+              <div className="row">
+                <div className="col-md-4 col-sm-12">
+                  <div className="mb-3">
+                    <div className="form-check form-switch">
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        role="switch"
+                        id="permission1"
+                        name="permission1"
+                      />
+                      <label htmlFor="permission1" className="form-check-label">
+                        Site Administrator
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="col-md-4 col-sm-12">
+                  <div className="mb-3">
+                    <div className="form-check form-switch">
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        role="switch"
+                        id="permission2"
+                        name="permission2"
+                      />
+                      <label htmlFor="permission2" className="form-check-label">
+                        Initiate Delivery
+                      </label>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="col-md-4 col-sm-12">
+                  <div className="mb-3">
+                    <div className="form-check form-switch">
+                      <input
+                        type="checkbox"
+                        className="form-check-input"
+                        role="switch"
+                        id="permission3"
+                        name="permission3"
+                      />
+                      <label htmlFor="permission3" className="form-check-label">
+                        Initiate Payments
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+
             <div className="mb-3">
               <button
                 className="btn btn-outline-success"
