@@ -243,7 +243,7 @@ const orders = [
       employee: "Employee 3",
       deliveryInfo: {
         date: "2022-03-02 12:03:45",
-        state: "Initiated",
+        state: "Pending Initiation",
         startStatus: "No",
         carType: "Van",
         carNumber: "ABC123",
@@ -337,7 +337,7 @@ const orders = [
       deliveryInfo: {
         date: "2022-03-02 12:03:45",
         state: "Initiated",
-        startStatus: "No",
+        startStatus: "Yes",
         carType: "Van",
         carNumber: "ABC123",
         driverName: "John Doe",
@@ -400,13 +400,13 @@ const orders = [
       },
       pricing: null,
       cost: 0,
-      status: "Active",
+      status: "Completed",
       timeline: "1 Days",
       employee: "Employee 2",
       deliveryInfo: {
         date: "2022-03-02 12:03:45",
         state: "Initiated",
-        startStatus: "No",
+        startStatus: "Yes",
         carType: "Van",
         carNumber: "ABC123",
         driverName: "John Doe",
@@ -507,7 +507,7 @@ const orders = [
       deliveryInfo: {
         date: "2022-03-02 12:03:45",
         state: "Initiated",
-        startStatus: "No",
+        startStatus: "Yes",
         carType: "Van",
         carNumber: "ABC123",
         driverName: "John Doe",
@@ -600,7 +600,7 @@ const orders = [
       deliveryInfo: {
         date: "2022-03-02 12:03:45",
         state: "Initiated",
-        startStatus: "No",
+        startStatus: "Yes",
         carType: "Van",
         carNumber: "ABC123",
         driverName: "John Doe",
@@ -669,7 +669,7 @@ const orders = [
       deliveryInfo: {
         date: "2022-03-02 12:03:45",
         state: "Initiated",
-        startStatus: "No",
+        startStatus: "Yes",
         carType: "Van",
         carNumber: "ABC123",
         driverName: "John Doe",
@@ -770,7 +770,7 @@ const orders = [
       deliveryInfo: {
         date: "2022-03-02 12:03:45",
         state: "Initiated",
-        startStatus: "No",
+        startStatus: "Yes",
         carType: "Van",
         carNumber: "ABC123",
         driverName: "John Doe",

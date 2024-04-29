@@ -82,17 +82,56 @@ const sites = [
           get vat() {
             return this.total * 0.16;
           },
-          deposit: null,
-          breakdown: null,
+          deposit: 50, // Percentage
+          get depositAmount() {
+            return this.total * (this.deposit / 100);
+          },
+          get breakdown() {
+            let remainingAmount = this.total - this.depositAmount;
+            const breakdowns = [
+              {
+                id: 1,
+                name: "Deposit",
+                amount: this.depositAmount,
+                status: "Pending Payment",
+                date: "2022-03-02 12:03:45",
+              },
+              {
+                id: 2,
+                name: "Final Payment",
+                amount: remainingAmount,
+                status: "Pending Payment",
+                date: "2022-04-02 12:03:45",
+              },
+            ];
+            return breakdowns;
+          },
         },
         deliveryPlan: {
           option: "Supplier",
           destination: "Site A",
+          siteInfo: {
+            siteName: "Site A",
+            siteAddress: "123 Main St, Anytown, USA",
+            sitePhone: "1234567890",
+            siteEmail: "3GqQe@example.com",
+            siteAdmin: "Employee 1",
+          },
           pricing: "Distance",
           cost: 1000,
           status: "Pending",
           timeline: "3 Days",
           employee: "Employee 1",
+          deliveryInfo: {
+            date: "2022-03-02 12:03:45",
+            state: "Pending Initiation",
+            startStatus: "No",
+            carType: "Van",
+            carNumber: "ABC123",
+            driverName: "John Doe",
+            driverPhone: "1234567890",
+            driverLicense: "ABC123",
+          },
         },
         supplierDetail: {
           name: "Supplier 1",
@@ -108,6 +147,7 @@ const sites = [
           return this.paymentDetail.total + this.deliveryPlan.cost;
         },
       },
+
       {
         id: 4,
         status: "Active",
@@ -134,17 +174,56 @@ const sites = [
           get vat() {
             return this.total * 0.16;
           },
-          deposit: null,
-          breakdown: null,
+          deposit: 50, // Percentage
+          get depositAmount() {
+            return this.total * (this.deposit / 100);
+          },
+          get breakdown() {
+            let remainingAmount = this.total - this.depositAmount;
+            const breakdowns = [
+              {
+                id: 1,
+                name: "Deposit",
+                amount: this.depositAmount,
+                status: "Paid",
+                date: "2022-03-02 12:03:45",
+              },
+              {
+                id: 2,
+                name: "Final Payment",
+                amount: remainingAmount,
+                status: "Pending Payment",
+                date: "2022-04-02 12:03:45",
+              },
+            ];
+            return breakdowns;
+          },
         },
         deliveryPlan: {
           option: "Supplier",
           destination: "Site A",
+          siteInfo: {
+            siteName: "Site A",
+            siteAddress: "123 Main St, Anytown, USA",
+            sitePhone: "1234567890",
+            siteEmail: "3GqQe@example.com",
+            siteAdmin: "Employee 1",
+          },
           pricing: "Distance",
           cost: 1000,
           status: "Active",
           timeline: "3 Days",
           employee: "Employee 1",
+          deliveryInfo: {
+            date: "2022-03-02 12:03:45",
+            state: "Initiated",
+            startStatus: "Yes",
+            carType: "Van",
+            carNumber: "ABC123",
+            driverName: "John Doe",
+            driverPhone: "1234567890",
+            driverLicense: "ABC123",
+          },
         },
         supplierDetail: {
           name: "Supplier 1",
@@ -186,17 +265,56 @@ const sites = [
           get vat() {
             return this.total * 0.16;
           },
-          deposit: null,
-          breakdown: null,
+          deposit: 50, // Percentage
+          get depositAmount() {
+            return this.total * (this.deposit / 100);
+          },
+          get breakdown() {
+            let remainingAmount = this.total - this.depositAmount;
+            const breakdowns = [
+              {
+                id: 1,
+                name: "Deposit",
+                amount: this.depositAmount,
+                status: "Paid",
+                date: "2022-03-02 12:03:45",
+              },
+              {
+                id: 2,
+                name: "Final Payment",
+                amount: remainingAmount,
+                status: "Paid",
+                date: "2022-04-02 12:03:45",
+              },
+            ];
+            return breakdowns;
+          },
         },
         deliveryPlan: {
           option: "Supplier",
           destination: "Site A",
+          siteInfo: {
+            siteName: "Site A",
+            siteAddress: "123 Main St, Anytown, USA",
+            sitePhone: "1234567890",
+            siteEmail: "3GqQe@example.com",
+            siteAdmin: "Employee 1",
+          },
           pricing: "Distance",
           cost: 1000,
           status: "Completed",
           timeline: "3 Days",
           employee: "Employee 1",
+          deliveryInfo: {
+            date: "2022-03-02 12:03:45",
+            state: "Initiated",
+            startStatus: "Yes",
+            carType: "Van",
+            carNumber: "ABC123",
+            driverName: "John Doe",
+            driverPhone: "1234567890",
+            driverLicense: "ABC123",
+          },
         },
         supplierDetail: {
           name: "Supplier 1",
@@ -258,110 +376,6 @@ const sites = [
     ],
     orders: [
       {
-        id: 2,
-        status: "Pending",
-        created: "2022-03-02 12:03:45",
-        employee: "Employee 2",
-        product: "Steel Tape Measure",
-        productDetail: {
-          inventory: "Site Equipment",
-          category: "Measuring Equipment",
-          subcategory: "Distance Measuring",
-          material: "Tape Measures",
-          rental: false,
-          lease: null,
-        },
-        paymentDetail: {
-          price: 500,
-          plan: "Fixed - upfront",
-          method: "Bank Transfer",
-          quantity: 5,
-          hours: null,
-          get total() {
-            return this.price * this.quantity;
-          },
-          get vat() {
-            return this.total * 0.16;
-          },
-          deposit: null,
-          breakdown: null,
-        },
-        deliveryPlan: {
-          option: "Self-Collect",
-          destination: "Site B",
-          pricing: null,
-          cost: 0,
-          status: "Pending",
-          timeline: "1 Days",
-          employee: "Employee 2",
-        },
-        supplierDetail: {
-          name: "Supplier 1",
-          phone: "1234567890",
-          address: "123 Main St, Anytown, USA",
-        },
-        supplierCompany: {
-          name: "Supplier Company 1",
-          phone: "1234567890",
-          address: "123 Main St, Anytown, USA",
-        },
-        get finalTotal() {
-          return this.paymentDetail.total + this.deliveryPlan.cost;
-        },
-      },
-      {
-        id: 5,
-        status: "Active",
-        created: "2022-03-02 12:03:45",
-        employee: "Employee 6",
-        product: "Fibreglass Tape Measure",
-        productDetail: {
-          inventory: "Site Equipment",
-          category: "Measuring Equipment",
-          subcategory: "Distance Measuring",
-          material: "Tape Measures",
-          rental: false,
-          lease: null,
-        },
-        paymentDetail: {
-          price: 500,
-          plan: "Fixed - upfront",
-          method: "Bank Transfer",
-          quantity: 10,
-          hours: null,
-          get total() {
-            return this.price * this.quantity;
-          },
-          get vat() {
-            return this.total * 0.16;
-          },
-          deposit: null,
-          breakdown: null,
-        },
-        deliveryPlan: {
-          option: "Self-Collect",
-          destination: "Site B",
-          pricing: null,
-          cost: 0,
-          status: "Active",
-          timeline: "1 Days",
-          employee: "Employee 2",
-        },
-        supplierDetail: {
-          name: "Supplier 1",
-          phone: "1234567890",
-          address: "123 Main St, Anytown, USA",
-        },
-        supplierCompany: {
-          name: "Supplier Company 1",
-          phone: "1234567890",
-          address: "123 Main St, Anytown, USA",
-        },
-        get finalTotal() {
-          return this.paymentDetail.total + this.deliveryPlan.cost;
-        },
-      },
-      {
         id: 8,
         status: "Completed",
         created: "2022-03-02 12:03:45",
@@ -393,11 +407,28 @@ const sites = [
         deliveryPlan: {
           option: "Self-Collect",
           destination: "Site B",
+          siteInfo: {
+            siteName: "Site B",
+            siteAddress: "123 Main St, Anytown, USA",
+            sitePhone: "1234567890",
+            siteEmail: "3GqQe@example.com",
+            siteAdmin: "Employee 1",
+          },
           pricing: null,
           cost: 0,
           status: "Completed",
           timeline: "1 Days",
           employee: "Employee 2",
+          deliveryInfo: {
+            date: "2022-03-02 12:03:45",
+            state: "Initiated",
+            startStatus: "Yes",
+            carType: "Van",
+            carNumber: "ABC123",
+            driverName: "John Doe",
+            driverPhone: "1234567890",
+            driverLicense: "ABC123",
+          },
         },
         supplierDetail: {
           name: "Supplier 1",
@@ -477,11 +508,166 @@ const sites = [
         deliveryPlan: {
           option: "Supplier",
           destination: "Site B",
+          siteInfo: {
+            siteName: "Site B",
+            siteAddress: "123 Main St, Anytown, USA",
+            sitePhone: "1234567890",
+            siteEmail: "3GqQe@example.com",
+            siteAdmin: "Employee 1",
+          },
           pricing: "Distance",
           cost: 1000,
           status: "Completed",
           timeline: "3 Days",
           employee: "Employee 3",
+          deliveryInfo: {
+            date: "2022-03-02 12:03:45",
+            state: "Initiated",
+            startStatus: "Yes",
+            carType: "Van",
+            carNumber: "ABC123",
+            driverName: "John Doe",
+            driverPhone: "1234567890",
+            driverLicense: "ABC123",
+          },
+        },
+        supplierDetail: {
+          name: "Supplier 1",
+          phone: "1234567890",
+          address: "123 Main St, Anytown, USA",
+        },
+        supplierCompany: {
+          name: "Supplier Company 1",
+          phone: "1234567890",
+          address: "123 Main St, Anytown, USA",
+        },
+        get finalTotal() {
+          return this.paymentDetail.total + this.deliveryPlan.cost;
+        },
+      },
+      {
+        id: 2,
+        status: "Pending",
+        created: "2022-03-02 12:03:45",
+        employee: "Employee 2",
+        product: "Steel Tape Measure",
+        productDetail: {
+          inventory: "Site Equipment",
+          category: "Measuring Equipment",
+          subcategory: "Distance Measuring",
+          material: "Tape Measures",
+          rental: false,
+          lease: null,
+        },
+        paymentDetail: {
+          price: 500,
+          plan: "Fixed - upfront",
+          method: "Bank Transfer",
+          quantity: 5,
+          hours: null,
+          get total() {
+            return this.price * this.quantity;
+          },
+          get vat() {
+            return this.total * 0.16;
+          },
+          deposit: null,
+          breakdown: null,
+        },
+        deliveryPlan: {
+          option: "Self-Collect",
+          destination: "Site B",
+          siteInfo: {
+            siteName: "Site B",
+            siteAddress: "123 Main St, Anytown, USA",
+            sitePhone: "1234567890",
+            siteEmail: "3GqQe@example.com",
+            siteAdmin: "Employee 1",
+          },
+          pricing: null,
+          cost: 0,
+          status: "Completed",
+          timeline: "1 Days",
+          employee: "Employee 2",
+          deliveryInfo: {
+            date: "2022-03-02 12:03:45",
+            state: "Initiated",
+            startStatus: "Yes",
+            carType: "Van",
+            carNumber: "ABC123",
+            driverName: "John Doe",
+            driverPhone: "1234567890",
+            driverLicense: "ABC123",
+          },
+        },
+        supplierDetail: {
+          name: "Supplier 1",
+          phone: "1234567890",
+          address: "123 Main St, Anytown, USA",
+        },
+        supplierCompany: {
+          name: "Supplier Company 1",
+          phone: "1234567890",
+          address: "123 Main St, Anytown, USA",
+        },
+        get finalTotal() {
+          return this.paymentDetail.total + this.deliveryPlan.cost;
+        },
+      },
+      {
+        id: 5,
+        status: "Active",
+        created: "2022-03-02 12:03:45",
+        employee: "Employee 6",
+        product: "Fibreglass Tape Measure",
+        productDetail: {
+          inventory: "Site Equipment",
+          category: "Measuring Equipment",
+          subcategory: "Distance Measuring",
+          material: "Tape Measures",
+          rental: false,
+          lease: null,
+        },
+        paymentDetail: {
+          price: 500,
+          plan: "Fixed - upfront",
+          method: "Bank Transfer",
+          quantity: 10,
+          hours: null,
+          get total() {
+            return this.price * this.quantity;
+          },
+          get vat() {
+            return this.total * 0.16;
+          },
+          deposit: null,
+          breakdown: null,
+        },
+        deliveryPlan: {
+          option: "Self-Collect",
+          destination: "Site B",
+          siteInfo: {
+            siteName: "Site B",
+            siteAddress: "123 Main St, Anytown, USA",
+            sitePhone: "1234567890",
+            siteEmail: "3GqQe@example.com",
+            siteAdmin: "Employee 1",
+          },
+          pricing: null,
+          cost: 0,
+          status: "Completed",
+          timeline: "1 Days",
+          employee: "Employee 2",
+          deliveryInfo: {
+            date: "2022-03-02 12:03:45",
+            state: "Initiated",
+            startStatus: "Yes",
+            carType: "Van",
+            carNumber: "ABC123",
+            driverName: "John Doe",
+            driverPhone: "1234567890",
+            driverLicense: "ABC123",
+          },
         },
         supplierDetail: {
           name: "Supplier 1",
@@ -594,24 +780,28 @@ const sites = [
                 name: "Deposit",
                 amount: this.depositAmount,
                 status: "Pending Payment",
+                date: "2022-03-02 12:03:45",
               },
               {
                 id: 2,
                 name: "First Installment",
                 amount: remainingAmount * 0.25,
                 status: "Pending Payment",
+                date: "2022-04-02 12:03:45",
               },
               {
                 id: 3,
                 name: "Second Installment",
                 amount: remainingAmount * 0.25,
                 status: "Pending Payment",
+                date: "2022-05-02 12:03:45",
               },
               {
                 id: 4,
                 name: "Final Installment",
                 amount: remainingAmount * 0.5,
                 status: "Pending Payment",
+                date: "2022-06-02 12:03:45",
               },
             ];
             return breakdowns;
@@ -620,11 +810,28 @@ const sites = [
         deliveryPlan: {
           option: "Supplier",
           destination: "Site C",
+          siteInfo: {
+            siteName: "Site C",
+            siteAddress: "123 Main St, Anytown, USA",
+            sitePhone: "1234567890",
+            siteEmail: "3GqQe@example.com",
+            siteAdmin: "Employee 1",
+          },
           pricing: "Distance",
           cost: 1000,
           status: "Pending",
           timeline: "3 Days",
           employee: "Employee 3",
+          deliveryInfo: {
+            date: "2022-03-02 12:03:45",
+            state: "Pending Initiation",
+            startStatus: "No",
+            carType: "Van",
+            carNumber: "ABC123",
+            driverName: "John Doe",
+            driverPhone: "1234567890",
+            driverLicense: "ABC123",
+          },
         },
         supplierDetail: {
           name: "Supplier 1",
@@ -748,11 +955,28 @@ const sites = [
         deliveryPlan: {
           option: "Supplier",
           destination: "Site D",
+          siteInfo: {
+            siteName: "Site D",
+            siteAddress: "123 Main St, Anytown, USA",
+            sitePhone: "1234567890",
+            siteEmail: "3GqQe@example.com",
+            siteAdmin: "Employee 1",
+          },
           pricing: "Distance",
           cost: 1000,
           status: "Active",
           timeline: "3 Days",
           employee: "Employee 3",
+          deliveryInfo: {
+            date: "2022-03-02 12:03:45",
+            state: "Initiated",
+            startStatus: "Yes",
+            carType: "Van",
+            carNumber: "ABC123",
+            driverName: "John Doe",
+            driverPhone: "1234567890",
+            driverLicense: "ABC123",
+          },
         },
         supplierDetail: {
           name: "Supplier 1",
