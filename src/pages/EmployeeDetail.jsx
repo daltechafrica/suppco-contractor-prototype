@@ -28,114 +28,156 @@ function EmployeeDetail() {
 
         <section className="mb-3">
           <form>
-            <div className="mb-3">
-              <label className="form-label" htmlFor="name">
-                Name
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="name"
-                placeholder="Enter employee name"
-              />
+            <div className="row">
+              <div className="col-md-4 col-sm-12">
+                <div className="mb-3">
+                  <label className="form-label" htmlFor="name">
+                    Name
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="name"
+                    placeholder={employee?.name}
+                  />
+                </div>
+              </div>
+              <div className="col-md-4 col-sm-12">
+                <div className="mb-3">
+                  <label className="form-label" htmlFor="username">
+                    Username
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="username"
+                    placeholder={employee?.username}
+                  />
+                </div>
+              </div>
+              <div className="col-md-4 col-sm-12">
+                <div className="mb-3">
+                  <label className="form-label" htmlFor="email">
+                    Email
+                  </label>
+                  <input
+                    className="form-control"
+                    type="email"
+                    id="email"
+                    placeholder={employee?.email}
+                  />
+                </div>
+              </div>
             </div>
-            <div className="mb-3">
-              <label className="form-label" htmlFor="username">
-                Username
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="username"
-                placeholder="Enter employee username"
-              />
+
+            <div className="row">
+              <div className="col-md-6 col-sm-12">
+                <div className="mb-3">
+                  <label className="form-label" htmlFor="phone">
+                    Phone
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="phone"
+                    placeholder={employee?.phone}
+                  />
+                </div>
+              </div>
+              <div className="col-md-6 col-sm-12">
+                <div className="mb-3">
+                  <label className="form-label" htmlFor="address">
+                    Address
+                  </label>
+                  <input
+                    className="form-control"
+                    type="text"
+                    id="address"
+                    placeholder={employee?.address}
+                  />
+                </div>
+              </div>
             </div>
-            <div className="mb-3">
-              <label className="form-label" htmlFor="email">
-                Email
-              </label>
-              <input
-                className="form-control"
-                type="email"
-                id="email"
-                placeholder="Enter employee email"
-              />
+
+            <div className="row">
+              <div className="col-md-6 col-sm-12">
+                <div className="mb-3">
+                  <label className="form-label" htmlFor="role">
+                    Role
+                  </label>
+                  <select name="role" id="" className="form-select">
+                    <option value={employee?.role}>{employee?.role}</option>
+                    <option value="Foreman">Foreman</option>
+                    <option value="Driver">Driver</option>
+                    <option value="Accountant">Accountant</option>
+                    <option value="Admin">Admin</option>
+                    <option value="Site Manager">Site Manager</option>
+                    <option value="Other">Other</option>
+                  </select>
+                </div>
+              </div>
+              <div className="col-md-6 col-sm-12">
+                <div className="mb-3">
+                  <label className="form-label" htmlFor="site">
+                    Site
+                  </label>
+                  <select name="site" id="" className="form-select">
+                    <option value={employee?.site}>{employee?.site}</option>
+                    <option value="Site A">Site A</option>
+                    <option value="Site B">Site B</option>
+                    <option value="Site C">Site C</option>
+                    <option value="Site D">Site D</option>
+                  </select>
+                </div>
+              </div>
             </div>
-            <div className="mb-3">
-              <label className="form-label" htmlFor="phone">
-                Phone
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="phone"
-                placeholder="Enter employee phone"
-              />
-            </div>
-            <div className="mb-3">
-              <label className="form-label" htmlFor="address">
-                Address
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="address"
-                placeholder="Enter employee address"
-              />
-            </div>
-            <div className="mb-3">
-              <label className="form-label" htmlFor="role">
-                Role
-              </label>
-              <select name="role" id="" className="form-select">
-                <option value="Foreman">Foreman</option>
-                <option value="Driver">Driver</option>
-                <option value="Accountant">Accountant</option>
-                <option value="Admin">Admin</option>
-                <option value="Site Manager">Site Manager</option>
-                <option value="Other">Other</option>
-              </select>
-            </div>
-            <div className="mb-3">
-              <label className="form-label" htmlFor="site">
-                Site
-              </label>
-              <select name="site" id="" className="form-select">
-                <option value="Site A">Site A</option>
-                <option value="Site B">Site B</option>
-                <option value="Site C">Site C</option>
-                <option value="Site D">Site D</option>
-              </select>
-            </div>
-            <h6>For Drivers only</h6>
-            <div className="mb-3">
-              <label className="form-label" htmlFor="license">
-                License
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="license"
-                placeholder="Enter employee license"
-              />
-            </div>
-            <div className="mb-3">
-              <label className="form-label" htmlFor="licenseExpiry">
-                License Expiry
-              </label>
-              <input className="form-control" type="date" id="licenseExpiry" />
-            </div>
-            <div className="mb-3">
-              <label className="form-label" htmlFor="plateReg">
-                Plate Registration
-              </label>
-              <input
-                className="form-control"
-                type="text"
-                id="plateReg"
-                placeholder="Enter employee plate registration"
-              />
-            </div>
+
+            {employee?.role === "Driver" && (
+              <>
+                <div className="row">
+                  <div className="col-md-4 col-sm-12">
+                    <div className="mb-3">
+                      <label className="form-label" htmlFor="license">
+                        License
+                      </label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        id="license"
+                        placeholder={employee?.driverDetail?.license}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-4 col-sm-12">
+                    <div className="mb-3">
+                      <label className="form-label" htmlFor="licenseExpiry">
+                        License Expiry
+                      </label>
+                      <input
+                        className="form-control"
+                        type="date"
+                        id="licenseExpiry"
+                        placeholder={employee?.driverDetail?.licenseExpiry}
+                      />
+                    </div>
+                  </div>
+                  <div className="col-md-4 col-sm-12">
+                    <div className="mb-3">
+                      <label className="form-label" htmlFor="plateReg">
+                        Plate Registration
+                      </label>
+                      <input
+                        className="form-control"
+                        type="text"
+                        id="plateReg"
+                        placeholder={employee?.driverDetail?.plateReg}
+                      />
+                    </div>
+                  </div>
+                </div>
+              </>
+            )}
+
             <div className="mb-3">
               <button
                 className="btn btn-outline-success"
