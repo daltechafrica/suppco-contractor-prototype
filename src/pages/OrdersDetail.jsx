@@ -747,6 +747,8 @@ function OrdersDetail() {
                     </div>
                   </>
                 )}
+
+                {/* Negotiable Plan */}
               {paymentDetail?.plan === "Negotiable Plan" &&
                 paymentDetail?.breakdown && (
                   <>
