@@ -172,6 +172,7 @@ function Orders() {
                   <th>Supplier Company</th>
                   <th>Site</th>
                   <th>Date</th>
+                  <th>Status</th>
                   <th>Action</th>
                 </tr>
               </thead>
@@ -184,6 +185,7 @@ function Orders() {
                     <td>{item.supplierCompany.name}</td>
                     <td>{item.deliveryPlan.destination}</td>
                     <td>{item.created}</td>
+                    <td>{item.status}</td>
                     <td>
                       <Link
                         to={`/orders/${item.id}/detail`}

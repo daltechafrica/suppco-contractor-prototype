@@ -27,17 +27,56 @@ const orders = [
       get vat() {
         return this.total * 0.16;
       },
-      deposit: null,
-      breakdown: null,
+      deposit: 50, // Percentage
+      get depositAmount() {
+        return this.total * (this.deposit / 100);
+      },
+      get breakdown() {
+        let remainingAmount = this.total - this.depositAmount;
+        const breakdowns = [
+          {
+            id: 1,
+            name: "Deposit",
+            amount: this.depositAmount,
+            status: "Pending Payment",
+            date: "2022-03-02 12:03:45",
+          },
+          {
+            id: 2,
+            name: "Final Payment",
+            amount: remainingAmount,
+            status: "Pending Payment",
+            date: "2022-04-02 12:03:45",
+          },
+        ];
+        return breakdowns;
+      },
     },
     deliveryPlan: {
       option: "Supplier",
       destination: "Site A",
+      siteInfo: {
+        siteName: "Site A",
+        siteAddress: "123 Main St, Anytown, USA",
+        sitePhone: "1234567890",
+        siteEmail: "3GqQe@example.com",
+        siteAdmin: "Employee 1",
+      },
       pricing: "Distance",
       cost: 1000,
       status: "Pending",
       timeline: "3 Days",
       employee: "Employee 1",
+      deliveryInfo: {
+        date: "2022-03-02 12:03:45",
+        state: "Pending Initiation",
+        startStatus: "No",
+        carType: "Van",
+        carNumber: "ABC123",
+        driverName: "John Doe",
+        driverPhone: "1234567890",
+        driverLicense: "ABC123",
+      },
     },
     supplierDetail: {
       name: "Supplier 1",
@@ -85,11 +124,28 @@ const orders = [
     deliveryPlan: {
       option: "Self-Collect",
       destination: "Site B",
+      siteInfo: {
+        siteName: "Site B",
+        siteAddress: "123 Main St, Anytown, USA",
+        sitePhone: "1234567890",
+        siteEmail: "3GqQe@example.com",
+        siteAdmin: "Employee 1",
+      },
       pricing: null,
       cost: 0,
-      status: "Pending",
+      status: "Completed",
       timeline: "1 Days",
       employee: "Employee 2",
+      deliveryInfo: {
+        date: "2022-03-02 12:03:45",
+        state: "Initiated",
+        startStatus: "Yes",
+        carType: "Van",
+        carNumber: "ABC123",
+        driverName: "John Doe",
+        driverPhone: "1234567890",
+        driverLicense: "ABC123",
+      },
     },
     supplierDetail: {
       name: "Supplier 1",
@@ -143,24 +199,28 @@ const orders = [
             name: "Deposit",
             amount: this.depositAmount,
             status: "Pending Payment",
+            date: "2022-03-02 12:03:45",
           },
           {
             id: 2,
             name: "First Installment",
             amount: remainingAmount * 0.25,
             status: "Pending Payment",
+            date: "2022-04-02 12:03:45",
           },
           {
             id: 3,
             name: "Second Installment",
             amount: remainingAmount * 0.25,
             status: "Pending Payment",
+            date: "2022-05-02 12:03:45",
           },
           {
             id: 4,
             name: "Final Installment",
             amount: remainingAmount * 0.5,
             status: "Pending Payment",
+            date: "2022-06-02 12:03:45",
           },
         ];
         return breakdowns;
@@ -169,11 +229,28 @@ const orders = [
     deliveryPlan: {
       option: "Supplier",
       destination: "Site C",
+      siteInfo: {
+        siteName: "Site C",
+        siteAddress: "123 Main St, Anytown, USA",
+        sitePhone: "1234567890",
+        siteEmail: "3GqQe@example.com",
+        siteAdmin: "Employee 1",
+      },
       pricing: "Distance",
       cost: 1000,
       status: "Pending",
       timeline: "3 Days",
       employee: "Employee 3",
+      deliveryInfo: {
+        date: "2022-03-02 12:03:45",
+        state: "Initiated",
+        startStatus: "No",
+        carType: "Van",
+        carNumber: "ABC123",
+        driverName: "John Doe",
+        driverPhone: "1234567890",
+        driverLicense: "ABC123",
+      },
     },
     supplierDetail: {
       name: "Supplier 1",
@@ -217,17 +294,56 @@ const orders = [
       get vat() {
         return this.total * 0.16;
       },
-      deposit: null,
-      breakdown: null,
+      deposit: 50, // Percentage
+      get depositAmount() {
+        return this.total * (this.deposit / 100);
+      },
+      get breakdown() {
+        let remainingAmount = this.total - this.depositAmount;
+        const breakdowns = [
+          {
+            id: 1,
+            name: "Deposit",
+            amount: this.depositAmount,
+            status: "Paid",
+            date: "2022-03-02 12:03:45",
+          },
+          {
+            id: 2,
+            name: "Final Payment",
+            amount: remainingAmount,
+            status: "Pending Payment",
+            date: "2022-04-02 12:03:45",
+          },
+        ];
+        return breakdowns;
+      },
     },
     deliveryPlan: {
       option: "Supplier",
       destination: "Site A",
+      siteInfo: {
+        siteName: "Site A",
+        siteAddress: "123 Main St, Anytown, USA",
+        sitePhone: "1234567890",
+        siteEmail: "3GqQe@example.com",
+        siteAdmin: "Employee 1",
+      },
       pricing: "Distance",
       cost: 1000,
       status: "Active",
       timeline: "3 Days",
       employee: "Employee 1",
+      deliveryInfo: {
+        date: "2022-03-02 12:03:45",
+        state: "Initiated",
+        startStatus: "No",
+        carType: "Van",
+        carNumber: "ABC123",
+        driverName: "John Doe",
+        driverPhone: "1234567890",
+        driverLicense: "ABC123",
+      },
     },
     supplierDetail: {
       name: "Supplier 1",
@@ -275,11 +391,28 @@ const orders = [
     deliveryPlan: {
       option: "Self-Collect",
       destination: "Site B",
+      siteInfo: {
+        siteName: "Site B",
+        siteAddress: "123 Main St, Anytown, USA",
+        sitePhone: "1234567890",
+        siteEmail: "3GqQe@example.com",
+        siteAdmin: "Employee 1",
+      },
       pricing: null,
       cost: 0,
       status: "Active",
       timeline: "1 Days",
       employee: "Employee 2",
+      deliveryInfo: {
+        date: "2022-03-02 12:03:45",
+        state: "Initiated",
+        startStatus: "No",
+        carType: "Van",
+        carNumber: "ABC123",
+        driverName: "John Doe",
+        driverPhone: "1234567890",
+        driverLicense: "ABC123",
+      },
     },
     supplierDetail: {
       name: "Supplier 1",
@@ -359,11 +492,28 @@ const orders = [
     deliveryPlan: {
       option: "Supplier",
       destination: "Site D",
+      siteInfo: {
+        siteName: "Site D",
+        siteAddress: "123 Main St, Anytown, USA",
+        sitePhone: "1234567890",
+        siteEmail: "3GqQe@example.com",
+        siteAdmin: "Employee 1",
+      },
       pricing: "Distance",
       cost: 1000,
       status: "Active",
       timeline: "3 Days",
       employee: "Employee 3",
+      deliveryInfo: {
+        date: "2022-03-02 12:03:45",
+        state: "Initiated",
+        startStatus: "No",
+        carType: "Van",
+        carNumber: "ABC123",
+        driverName: "John Doe",
+        driverPhone: "1234567890",
+        driverLicense: "ABC123",
+      },
     },
     supplierDetail: {
       name: "Supplier 1",
@@ -380,7 +530,7 @@ const orders = [
     },
   },
 
-  // Complete Orders
+  // Completed Orders
   {
     id: 7,
     status: "Completed",
@@ -407,17 +557,56 @@ const orders = [
       get vat() {
         return this.total * 0.16;
       },
-      deposit: null,
-      breakdown: null,
+      deposit: 50, // Percentage
+      get depositAmount() {
+        return this.total * (this.deposit / 100);
+      },
+      get breakdown() {
+        let remainingAmount = this.total - this.depositAmount;
+        const breakdowns = [
+          {
+            id: 1,
+            name: "Deposit",
+            amount: this.depositAmount,
+            status: "Paid",
+            date: "2022-03-02 12:03:45",
+          },
+          {
+            id: 2,
+            name: "Final Payment",
+            amount: remainingAmount,
+            status: "Paid",
+            date: "2022-04-02 12:03:45",
+          },
+        ];
+        return breakdowns;
+      },
     },
     deliveryPlan: {
       option: "Supplier",
       destination: "Site A",
+      siteInfo: {
+        siteName: "Site A",
+        siteAddress: "123 Main St, Anytown, USA",
+        sitePhone: "1234567890",
+        siteEmail: "3GqQe@example.com",
+        siteAdmin: "Employee 1",
+      },
       pricing: "Distance",
       cost: 1000,
       status: "Completed",
       timeline: "3 Days",
       employee: "Employee 1",
+      deliveryInfo: {
+        date: "2022-03-02 12:03:45",
+        state: "Initiated",
+        startStatus: "No",
+        carType: "Van",
+        carNumber: "ABC123",
+        driverName: "John Doe",
+        driverPhone: "1234567890",
+        driverLicense: "ABC123",
+      },
     },
     supplierDetail: {
       name: "Supplier 1",
@@ -465,11 +654,28 @@ const orders = [
     deliveryPlan: {
       option: "Self-Collect",
       destination: "Site B",
+      siteInfo: {
+        siteName: "Site B",
+        siteAddress: "123 Main St, Anytown, USA",
+        sitePhone: "1234567890",
+        siteEmail: "3GqQe@example.com",
+        siteAdmin: "Employee 1",
+      },
       pricing: null,
       cost: 0,
       status: "Completed",
       timeline: "1 Days",
       employee: "Employee 2",
+      deliveryInfo: {
+        date: "2022-03-02 12:03:45",
+        state: "Initiated",
+        startStatus: "No",
+        carType: "Van",
+        carNumber: "ABC123",
+        driverName: "John Doe",
+        driverPhone: "1234567890",
+        driverLicense: "ABC123",
+      },
     },
     supplierDetail: {
       name: "Supplier 1",
@@ -549,11 +755,28 @@ const orders = [
     deliveryPlan: {
       option: "Supplier",
       destination: "Site B",
+      siteInfo: {
+        siteName: "Site B",
+        siteAddress: "123 Main St, Anytown, USA",
+        sitePhone: "1234567890",
+        siteEmail: "3GqQe@example.com",
+        siteAdmin: "Employee 1",
+      },
       pricing: "Distance",
       cost: 1000,
       status: "Completed",
       timeline: "3 Days",
       employee: "Employee 3",
+      deliveryInfo: {
+        date: "2022-03-02 12:03:45",
+        state: "Initiated",
+        startStatus: "No",
+        carType: "Van",
+        carNumber: "ABC123",
+        driverName: "John Doe",
+        driverPhone: "1234567890",
+        driverLicense: "ABC123",
+      },
     },
     supplierDetail: {
       name: "Supplier 1",
