@@ -214,6 +214,7 @@ function Employees() {
                   <th>Address</th>
                   <th>Role</th>
                   <th>Site</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -227,6 +228,26 @@ function Employees() {
                     <td>{employee.address}</td>
                     <td>{employee.role}</td>
                     <td>{employee.site}</td>
+                    <td>
+                      <div className="d-flex justify-content-around align-items-center">
+                        <Link
+                          to={`/employees/${employee.id}/detail`}
+                          className="btn btn-sm btn-outline-primary me-1"
+                        >
+                          Update
+                        </Link>
+                        <Link
+                          className="btn btn-sm btn-outline-danger"
+                          onClick={() =>
+                            alert(
+                              "Employee Deactivated. They will be removed from the site after 24 hours"
+                            )
+                          }
+                        >
+                          Delete
+                        </Link>
+                      </div>
+                    </td>
                   </tr>
                 ))}
               </tbody>

@@ -7,6 +7,7 @@ const appLinks = {
   Employees: "/employees",
   Sites: "/sites",
   SiteDetail: "/sites/:siteId/detail",
+  EmployeeDetail: "/employees/:employeeId/detail",
 };
 
 export { appLinks };
