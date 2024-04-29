@@ -748,7 +748,7 @@ function OrdersDetail() {
                   </>
                 )}
 
-                {/* Negotiable Plan */}
+              {/* Negotiable Plan */}
               {paymentDetail?.plan === "Negotiable Plan" &&
                 paymentDetail?.breakdown && (
                   <>
@@ -787,6 +787,95 @@ function OrdersDetail() {
                     </div>
                   </>
                 )}
+
+              {/* Invoice */}
+              <div className="card mt-3">
+                <h6 className="card-header bg-white">Invoice</h6>
+                <div className="card-body">
+                  <div className="row mb-3">
+                    <div className="col-md-6 col-sm-12">
+                      <p className="card-text">
+                        Supplier Name: {order?.supplierDetail?.name} <br />
+                        Supplier Company: {order?.supplierCompany?.name}
+                      </p>
+                    </div>
+                    <div className="col-md-6 col-sm-12">
+                      <p className="card-text text-end">
+                        Ref No.: {order?.id} <br />
+                        Date: {order?.created}
+                      </p>
+                    </div>
+                  </div>
+                  <hr />
+
+                  <div>
+                    {paymentDetail?.plan === "Fixed - 50/50" &&
+                      paymentDetail?.breakdown && (
+                        <>
+                          <div className="table-responsive">
+                            <table className="table table-bordered">
+                              <thead>
+                                <tr>
+                                  <th>Name</th>
+                                  <th>Amount</th>
+                                  <th>Date</th>
+                                  <th>Status</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {paymentDetail?.breakdown?.map((item) => (
+                                  <tr>
+                                    <td>{item?.name}</td>
+                                    <td>{item?.amount}</td>
+                                    <td>{item?.date}</td>
+                                    <td>
+                                      <button className="btn btn-warning btn-sm">
+                                        {item?.status}
+                                      </button>
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </>
+                      )}
+
+                    {/* Negotiable Plan */}
+                    {paymentDetail?.plan === "Negotiable Plan" &&
+                      paymentDetail?.breakdown && (
+                        <>
+                          <div className="table-responsive">
+                            <table className="table table-bordered">
+                              <thead>
+                                <tr>
+                                  <th>Name</th>
+                                  <th>Amount</th>
+                                  <th>Date</th>
+                                  <th>Status</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {paymentDetail?.breakdown?.map((item) => (
+                                  <tr>
+                                    <td>{item?.name}</td>
+                                    <td>{item?.amount}</td>
+                                    <td>{item?.date}</td>
+                                    <td>
+                                      <button className="btn btn-success btn-sm">
+                                        {item?.status}
+                                      </button>
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </>
+                      )}
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
         )}
