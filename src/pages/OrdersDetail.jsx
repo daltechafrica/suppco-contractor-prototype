@@ -222,6 +222,7 @@ function OrdersDetail() {
                               <tr>
                                 <th>Name</th>
                                 <th>Amount</th>
+                                <th>Date</th>
                                 <th>Status</th>
                               </tr>
                             </thead>
@@ -230,6 +231,47 @@ function OrdersDetail() {
                                 <tr>
                                   <td>{item?.name}</td>
                                   <td>{item?.amount}</td>
+                                  <td>{item?.date}</td>
+                                  <td>
+                                    <button className="btn btn-warning btn-sm">
+                                      {item?.status}
+                                    </button>
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
+
+              {/* Fixed - 50/50 */}
+              {paymentDetail?.plan === "Fixed - 50/50" &&
+                paymentDetail?.breakdown && (
+                  <>
+                    <div className="card">
+                      <h6 className="card-header bg-white">
+                        Payment Breakdown
+                      </h6>
+                      <div className="card-body">
+                        <div className="table-responsive">
+                          <table className="table table-bordered">
+                            <thead>
+                              <tr>
+                                <th>Name</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {paymentDetail?.breakdown?.map((item) => (
+                                <tr>
+                                  <td>{item?.name}</td>
+                                  <td>{item?.amount}</td>
+                                  <td>{item?.date}</td>
                                   <td>
                                     <button className="btn btn-warning btn-sm">
                                       {item?.status}
@@ -415,6 +457,46 @@ function OrdersDetail() {
                   </p>
                 </div>
               </div>
+              {paymentDetail?.plan === "Fixed - 50/50" &&
+                paymentDetail?.breakdown && (
+                  <>
+                    <div className="card">
+                      <h6 className="card-header bg-white">
+                        Payment Breakdown
+                      </h6>
+                      <div className="card-body">
+                        <div className="table-responsive">
+                          <table className="table table-bordered">
+                            <thead>
+                              <tr>
+                                <th>Name</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {paymentDetail?.breakdown?.map((item) => (
+                                <tr>
+                                  <td>{item?.name}</td>
+                                  <td>{item?.amount}</td>
+                                  <td>{item?.date}</td>
+                                  <td>
+                                    <button className="btn btn-warning btn-sm">
+                                      {item?.status}
+                                    </button>
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
+
+              {/* Negotiable */}
               {paymentDetail?.plan === "Negotiable Plan" &&
                 paymentDetail?.breakdown && (
                   <>
@@ -429,6 +511,7 @@ function OrdersDetail() {
                               <tr>
                                 <th>Name</th>
                                 <th>Amount</th>
+                                <th>Date</th>
                                 <th>Status</th>
                               </tr>
                             </thead>
@@ -437,6 +520,7 @@ function OrdersDetail() {
                                 <tr>
                                   <td>{item?.name}</td>
                                   <td>{item?.amount}</td>
+                                  <td>{item?.date}</td>
                                   <td>
                                     <button
                                       className={`btn btn-sm ${
@@ -625,6 +709,44 @@ function OrdersDetail() {
                   </p>
                 </div>
               </div>
+              {paymentDetail?.plan === "Fixed - 50/50" &&
+                paymentDetail?.breakdown && (
+                  <>
+                    <div className="card">
+                      <h6 className="card-header bg-white">
+                        Payment Breakdown
+                      </h6>
+                      <div className="card-body">
+                        <div className="table-responsive">
+                          <table className="table table-bordered">
+                            <thead>
+                              <tr>
+                                <th>Name</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              {paymentDetail?.breakdown?.map((item) => (
+                                <tr>
+                                  <td>{item?.name}</td>
+                                  <td>{item?.amount}</td>
+                                  <td>{item?.date}</td>
+                                  <td>
+                                    <button className="btn btn-warning btn-sm">
+                                      {item?.status}
+                                    </button>
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </>
+                )}
               {paymentDetail?.plan === "Negotiable Plan" &&
                 paymentDetail?.breakdown && (
                   <>
@@ -639,6 +761,7 @@ function OrdersDetail() {
                               <tr>
                                 <th>Name</th>
                                 <th>Amount</th>
+                                <th>Date</th>
                                 <th>Status</th>
                               </tr>
                             </thead>
@@ -647,6 +770,7 @@ function OrdersDetail() {
                                 <tr>
                                   <td>{item?.name}</td>
                                   <td>{item?.amount}</td>
+                                  <td>{item?.date}</td>
                                   <td>
                                     <button className="btn btn-success btn-sm">
                                       {item?.status}

@@ -466,24 +466,28 @@ const orders = [
             name: "Deposit",
             amount: this.depositAmount,
             status: "Paid",
+            date: "2022-03-02 12:03:45",
           },
           {
             id: 2,
             name: "First Installment",
             amount: remainingAmount * 0.25,
             status: "Paid",
+            date: "2022-04-02 12:03:45",
           },
           {
             id: 3,
             name: "Second Installment",
             amount: remainingAmount * 0.25,
             status: "Pending Payment",
+            date: "2022-05-02 12:03:45",
           },
           {
             id: 4,
             name: "Final Installment",
             amount: remainingAmount * 0.5,
             status: "Pending Payment",
+            date: "2022-06-02 12:03:45",
           },
         ];
         return breakdowns;
@@ -729,24 +733,28 @@ const orders = [
             name: "Deposit",
             amount: this.depositAmount,
             status: "Paid",
+            date: "2022-03-02 12:03:45",
           },
           {
             id: 2,
             name: "First Installment",
             amount: remainingAmount * 0.25,
             status: "Paid",
+            date: "2022-03-02 12:03:45",
           },
           {
             id: 3,
             name: "Second Installment",
             amount: remainingAmount * 0.25,
             status: "Paid",
+            date: "2022-04-02 12:03:45",
           },
           {
             id: 4,
             name: "Final Installment",
             amount: remainingAmount * 0.5,
             status: "Paid",
+            date: "2022-05-02 12:03:45",
           },
         ];
         return breakdowns;
