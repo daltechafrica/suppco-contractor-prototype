@@ -79,7 +79,9 @@ function Books() {
           <div className="row mt-1">
             <div className="col-sm-12 col-md-4 mb-2">
               <div className="card">
-                <h6 className="card-header bg-white">Pending Payments</h6>
+                <Link to={appLinks.Orders} className="card-header h6 bg-white">
+                  Pending Payments
+                </Link>
                 <div className="card-body">
                   <p className="card-text fw-bold">
                     {totalPendingOrdersAmount} Ksh
@@ -89,7 +91,9 @@ function Books() {
             </div>
             <div className="col-sm-12 col-md-4 mb-2">
               <div className="card">
-                <h6 className="card-header bg-white">Active Payments</h6>
+                <Link to={appLinks.Orders} className="card-header h6 bg-white">
+                  Active Payments
+                </Link>
                 <div className="card-body">
                   <p className="card-text fw-bold">
                     {totalActiveOrdersAmount} Ksh
@@ -99,7 +103,9 @@ function Books() {
             </div>
             <div className="col-sm-12 col-md-4 mb-2">
               <div className="card">
-                <h6 className="card-header bg-white">Completed Payments</h6>
+                <Link to={appLinks.Orders} className="card-header h6 bg-white">
+                  Completed Payments
+                </Link>
                 <div className="card-body">
                   <p className="card-text fw-bold">
                     {totalCompletedOrdersAmount} Ksh
@@ -157,8 +163,8 @@ function Books() {
                 <tr>
                   <th>Order ID</th>
                   <th>Product</th>
+                  <th>VAT</th>
                   <th>Supplier Name</th>
-                  <th>Supplier Company</th>
                   <th>Site</th>
                   <th>Date</th>
                   <th>Status</th>
@@ -170,8 +176,8 @@ function Books() {
                   <tr key={item.id}>
                     <td>{item.id}</td>
                     <td>{item.product}</td>
+                    <td>{item.paymentDetail.vat}</td>
                     <td>{item.supplierDetail.name}</td>
-                    <td>{item.supplierCompany.name}</td>
                     <td>{item.deliveryPlan.destination}</td>
                     <td>{item.created}</td>
                     <td>{item.status}</td>
