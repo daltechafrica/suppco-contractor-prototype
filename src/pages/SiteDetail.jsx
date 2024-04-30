@@ -2,12 +2,16 @@ import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { sites } from "../data/sites";
 import { appLinks } from "../constants/links";
+import Modal from "react-bootstrap/Modal";
 
 function SiteDetail() {
   const { siteId } = useParams();
   const site = sites.find((site) => site.id === parseInt(siteId));
   const [statusFilter, setStatusFilter] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   const filteredData = site?.orders?.filter((order) => {
     // filtering by status
@@ -90,8 +94,86 @@ function SiteDetail() {
                 </span>
                 Site Details
               </h4>
+              <div className="d-flex justify-content-between align-items-center">
+                <Link
+                  onClick={handleShow}
+                  className="btn btn-outline-primary btn-sm me-2"
+                >
+                  Edit
+                </Link>
+                <Link className="btn btn-sm btn-outline-success">Order</Link>
 
-              <Link className="btn btn-sm btn-outline-success">Order</Link>
+                <Modal
+                  show={show}
+                  onHide={handleClose}
+                  dialogClassName="modal-dialog"
+                >
+                  <div className="modal-header">
+                    <h5 className="modal-title">Update Site</h5>
+                    <button
+                      className="btn-close"
+                      type="button"
+                      onClick={handleClose}
+                    ></button>
+                  </div>
+                  <div className="modal-body">
+                    <form>
+                      <div className="mb-3">
+                        <label className="form-label" htmlFor="name">
+                          Name
+                        </label>
+                        <input
+                          className="form-control"
+                          type="text"
+                          id="name"
+                          defaultValue={site?.name}
+                        />
+                      </div>
+                      <div className="mb-3">
+                        <label className="form-label" htmlFor="address">
+                          Address
+                        </label>
+                        <input
+                          className="form-control"
+                          type="text"
+                          id="address"
+                          defaultValue={site?.address}
+                        />
+                      </div>
+                      <div className="mb-3">
+                        <label className="form-label" htmlFor="phone">
+                          Phone
+                        </label>
+                        <input
+                          className="form-control"
+                          type="text"
+                          id="phone"
+                          defaultValue={site?.phone}
+                        />
+                      </div>
+                      <div className="mb-3">
+                        <label className="form-label" htmlFor="image">
+                          Image
+                        </label>
+                        <input
+                          className="form-control"
+                          type="text"
+                          id="image"
+                          defaultValue={site?.image}
+                        />
+                      </div>
+                      <div className="mb-3">
+                        <Link
+                          onClick={handleClose}
+                          className="btn btn-sm btn-outline-success"
+                        >
+                          Update
+                        </Link>
+                      </div>
+                    </form>
+                  </div>
+                </Modal>
+              </div>
             </section>
 
             <hr className="w-100" />
