@@ -479,7 +479,7 @@ const orders = [
             id: 3,
             name: "Second Installment",
             amount: remainingAmount * 0.25,
-            status: "Pending Payment",
+            status: "Due Payment",
             date: "2022-05-02 12:03:45",
           },
           {

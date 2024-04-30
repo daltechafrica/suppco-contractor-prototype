@@ -139,30 +139,86 @@ function OrdersDetail() {
                   Delivery Details - {delivery?.status}
                 </h6>
                 <div className="card-body">
-                  <p className="card-text mb-2">
-                    <strong>Option: </strong>
-                    {delivery?.option}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Address: </strong>
-                    {delivery?.destination}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Pricing: </strong>
-                    {delivery?.pricing}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Cost: </strong>
-                    {delivery?.cost}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Timeline: </strong>
-                    {delivery?.timeline}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Employee: </strong>
-                    {delivery?.employee}
-                  </p>
+                  <div className="row">
+                    <div className="col-md-4 col-sm-12 mb-3 border-end">
+                      <h6 className="card-title fw-bold">Basic Info</h6>
+                      <hr className="mb-1" />
+                      <p className="card-text mb-2">
+                        <strong>Option: </strong>
+                        {delivery?.option}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Address: </strong>
+                        {delivery?.destination}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Pricing: </strong>
+                        {delivery?.pricing}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Cost: </strong>
+                        {delivery?.cost}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Timeline: </strong>
+                        {delivery?.timeline}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Employee: </strong>
+                        {delivery?.employee}
+                      </p>
+                    </div>
+                    <div className="col-md-4 col-sm-12 mb-3 border-end">
+                      <h6 className="card-title fw-bold">
+                        Destination Info - {delivery?.destination}
+                      </h6>
+                      <hr className="mb-1" />
+                      <p className="card-text mb-2">
+                        <strong>Administrator: </strong>
+                        {delivery?.siteInfo.siteAdmin}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Address: </strong>
+                        {delivery?.siteInfo.siteAddress}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Phone: </strong>
+                        {delivery?.siteInfo.sitePhone}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Email: </strong>
+                        {delivery?.siteInfo.siteEmail}
+                      </p>
+                    </div>
+                    <div className="col-md-4 col-sm-12 mb-3">
+                      <h6 className="card-title fw-bold">Transit Info</h6>
+                      <hr className="mb-1" />
+                      <p className="card-text mb-2">
+                        <strong>Date: </strong>
+                        {delivery?.deliveryInfo?.date}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>State: </strong>
+                        {delivery?.deliveryInfo?.state}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Start Status: </strong>
+                        {delivery?.deliveryInfo?.startStatus}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Vehicle: </strong>
+                        {delivery?.deliveryInfo?.carType}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Driver: </strong>
+                        {delivery?.deliveryInfo?.driverName}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Driver Phone: </strong>
+                        {delivery?.deliveryInfo?.driverPhone}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -342,12 +398,6 @@ function OrdersDetail() {
                     <p className="card-text h6">Payment Methods:</p>
                     <p className="card-text mb-1">Bank Transfer</p>
                     <p className="card-text mb-1">Mobile Money - M-PESA</p>
-                    <Link
-                      to={`/pay/${order?.id}`}
-                      className="btn btn-outline-success btn-sm rounded-0"
-                    >
-                      MAKE PAYMENT
-                    </Link>
                   </div>
                 </div>
               </div>
@@ -450,30 +500,86 @@ function OrdersDetail() {
                   Delivery Details - {delivery?.status}
                 </h6>
                 <div className="card-body">
-                  <p className="card-text mb-2">
-                    <strong>Option: </strong>
-                    {delivery?.option}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Address: </strong>
-                    {delivery?.destination}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Pricing: </strong>
-                    {delivery?.pricing}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Cost: </strong>
-                    {delivery?.cost}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Timeline: </strong>
-                    {delivery?.timeline}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Employee: </strong>
-                    {delivery?.employee}
-                  </p>
+                  <div className="row">
+                    <div className="col-md-4 col-sm-12 mb-3 border-end">
+                      <h6 className="card-title fw-bold">Basic Info</h6>
+                      <hr className="mb-1" />
+                      <p className="card-text mb-2">
+                        <strong>Option: </strong>
+                        {delivery?.option}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Address: </strong>
+                        {delivery?.destination}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Pricing: </strong>
+                        {delivery?.pricing}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Cost: </strong>
+                        {delivery?.cost}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Timeline: </strong>
+                        {delivery?.timeline}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Employee: </strong>
+                        {delivery?.employee}
+                      </p>
+                    </div>
+                    <div className="col-md-4 col-sm-12 mb-3 border-end">
+                      <h6 className="card-title fw-bold">
+                        Destination Info - {delivery?.destination}
+                      </h6>
+                      <hr className="mb-1" />
+                      <p className="card-text mb-2">
+                        <strong>Administrator: </strong>
+                        {delivery?.siteInfo.siteAdmin}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Address: </strong>
+                        {delivery?.siteInfo.siteAddress}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Phone: </strong>
+                        {delivery?.siteInfo.sitePhone}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Email: </strong>
+                        {delivery?.siteInfo.siteEmail}
+                      </p>
+                    </div>
+                    <div className="col-md-4 col-sm-12 mb-3">
+                      <h6 className="card-title fw-bold">Transit Info</h6>
+                      <hr className="mb-1" />
+                      <p className="card-text mb-2">
+                        <strong>Date: </strong>
+                        {delivery?.deliveryInfo?.date}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>State: </strong>
+                        {delivery?.deliveryInfo?.state}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Start Status: </strong>
+                        {delivery?.deliveryInfo?.startStatus}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Vehicle: </strong>
+                        {delivery?.deliveryInfo?.carType}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Driver: </strong>
+                        {delivery?.deliveryInfo?.driverName}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Driver Phone: </strong>
+                        {delivery?.deliveryInfo?.driverPhone}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -524,7 +630,7 @@ function OrdersDetail() {
               </div>
 
               {/* Invoice */}
-              <div className="card mt-3">
+              <div className="card mt-3 rounded-0">
                 <h6 className="card-header bg-white">Invoice</h6>
                 <div className="card-body">
                   <div className="row mb-3">
@@ -637,6 +743,8 @@ function OrdersDetail() {
                                         className={`btn btn-sm ${
                                           item.status === "Pending Payment"
                                             ? "btn-warning"
+                                            : item.status === "Due Payment"
+                                            ? "btn-danger"
                                             : "btn-success"
                                         }`}
                                       >
@@ -764,30 +872,86 @@ function OrdersDetail() {
                   Delivery Details - {delivery?.status}
                 </h6>
                 <div className="card-body">
-                  <p className="card-text mb-2">
-                    <strong>Option: </strong>
-                    {delivery?.option}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Address: </strong>
-                    {delivery?.destination}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Pricing: </strong>
-                    {delivery?.pricing}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Cost: </strong>
-                    {delivery?.cost}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Timeline: </strong>
-                    {delivery?.timeline}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Employee: </strong>
-                    {delivery?.employee}
-                  </p>
+                  <div className="row">
+                    <div className="col-md-4 col-sm-12 mb-3 border-end">
+                      <h6 className="card-title fw-bold">Basic Info</h6>
+                      <hr className="mb-1" />
+                      <p className="card-text mb-2">
+                        <strong>Option: </strong>
+                        {delivery?.option}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Address: </strong>
+                        {delivery?.destination}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Pricing: </strong>
+                        {delivery?.pricing}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Cost: </strong>
+                        {delivery?.cost}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Timeline: </strong>
+                        {delivery?.timeline}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Employee: </strong>
+                        {delivery?.employee}
+                      </p>
+                    </div>
+                    <div className="col-md-4 col-sm-12 mb-3 border-end">
+                      <h6 className="card-title fw-bold">
+                        Destination Info - {delivery?.destination}
+                      </h6>
+                      <hr className="mb-1" />
+                      <p className="card-text mb-2">
+                        <strong>Administrator: </strong>
+                        {delivery?.siteInfo.siteAdmin}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Address: </strong>
+                        {delivery?.siteInfo.siteAddress}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Phone: </strong>
+                        {delivery?.siteInfo.sitePhone}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Email: </strong>
+                        {delivery?.siteInfo.siteEmail}
+                      </p>
+                    </div>
+                    <div className="col-md-4 col-sm-12 mb-3">
+                      <h6 className="card-title fw-bold">Transit Info</h6>
+                      <hr className="mb-1" />
+                      <p className="card-text mb-2">
+                        <strong>Date: </strong>
+                        {delivery?.deliveryInfo?.date}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>State: </strong>
+                        {delivery?.deliveryInfo?.state}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Start Status: </strong>
+                        {delivery?.deliveryInfo?.startStatus}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Vehicle: </strong>
+                        {delivery?.deliveryInfo?.carType}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Driver: </strong>
+                        {delivery?.deliveryInfo?.driverName}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Driver Phone: </strong>
+                        {delivery?.deliveryInfo?.driverPhone}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -835,7 +999,7 @@ function OrdersDetail() {
               </div>
 
               {/* Invoice */}
-              <div className="card mt-3">
+              <div className="card mt-3 rounded-0">
                 <h6 className="card-header bg-white">Invoice</h6>
                 <div className="card-body">
                   <div className="row mb-3">
