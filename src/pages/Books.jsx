@@ -48,6 +48,21 @@ function Books() {
     0
   );
 
+  const monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
   return (
     <>
       <div className="container py-3 mb-3">
@@ -102,16 +117,20 @@ function Books() {
             <label htmlFor="month" className="form-label me-2">
               Month:
             </label>
-            <input
-              type="number"
+            <select
               id="month"
               name="month"
-              min="1"
-              max="12"
               value={selectedMonth}
               onChange={handleMonthChange}
-              className="form-control me-2"
-            />
+              className="form-select me-2"
+            >
+              <option value="">Select Month</option>
+              {monthNames.map((month, index) => (
+                <option key={index + 1} value={index + 1}>
+                  {month}
+                </option>
+              ))}
+            </select>
             <label htmlFor="year" className="form-label me-2">
               Year:
             </label>
@@ -127,9 +146,47 @@ function Books() {
             />
           </div>
           <div className="mb-3">
-            <p>
-              Total VAT for {selectedMonth}/{selectedYear}: {totalVAT} Ksh
+            <p className="fw-bold text-uppercase text-decoration-underline">
+              Total VAT for {selectedMonth && monthNames[selectedMonth - 1]}/
+              {selectedYear}: {totalVAT} Ksh
             </p>
+          </div>
+          <div className="table-responsive">
+            <table className="table table-bordered">
+              <thead>
+                <tr>
+                  <th>Order ID</th>
+                  <th>Product</th>
+                  <th>Supplier Name</th>
+                  <th>Supplier Company</th>
+                  <th>Site</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {filteredOrders.map((item) => (
+                  <tr key={item.id}>
+                    <td>{item.id}</td>
+                    <td>{item.product}</td>
+                    <td>{item.supplierDetail.name}</td>
+                    <td>{item.supplierCompany.name}</td>
+                    <td>{item.deliveryPlan.destination}</td>
+                    <td>{item.created}</td>
+                    <td>{item.status}</td>
+                    <td>
+                      <Link
+                        to={`/orders/${item.id}/detail`}
+                        className="btn btn-outline-primary btn-sm"
+                      >
+                        View
+                      </Link>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </section>
       </div>
