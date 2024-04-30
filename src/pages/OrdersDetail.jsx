@@ -210,7 +210,7 @@ function OrdersDetail() {
               </div>
 
               {/* Invoice */}
-              <div className="card mt-3">
+              <div className="card mt-3 rounded-0">
                 <h6 className="card-header bg-white">Invoice</h6>
                 <div className="card-body">
                   <div className="row mb-3">
@@ -230,6 +230,36 @@ function OrdersDetail() {
                   <hr />
 
                   <div>
+                    {paymentDetail?.plan === "Fixed - upfront" && (
+                      <>
+                        <div className="table-responsive mt-3 mb-3">
+                          <table className="table table-bordered">
+                            <thead>
+                              <tr>
+                                <td>No.</td>
+                                <td>Item</td>
+                                <td>Quantity</td>
+                                <td>Price</td>
+                                <td>VAT</td>
+                                <td>Total</td>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>1</td>
+                                <td>{order?.product}</td>
+                                <td>{paymentDetail?.quantity}</td>
+                                <td>{paymentDetail?.price}</td>
+                                <td>{paymentDetail?.vat}</td>
+                                <td>{paymentDetail?.total}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </>
+                    )}
+
+                    {/* Fixed Plan */}
                     {paymentDetail?.plan === "Fixed - 50/50" &&
                       paymentDetail?.breakdown && (
                         <>
@@ -306,6 +336,18 @@ function OrdersDetail() {
                           </div>
                         </>
                       )}
+                  </div>
+
+                  <div className="mb-3">
+                    <p className="card-text h6">Payment Methods:</p>
+                    <p className="card-text mb-1">Bank Transfer</p>
+                    <p className="card-text mb-1">Mobile Money - M-PESA</p>
+                    <Link
+                      to={`/pay/${order?.id}`}
+                      className="btn btn-outline-success btn-sm rounded-0"
+                    >
+                      MAKE PAYMENT
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -502,6 +544,36 @@ function OrdersDetail() {
                   <hr />
 
                   <div>
+                    {paymentDetail?.plan === "Fixed - upfront" && (
+                      <>
+                        <div className="table-responsive mt-3 mb-3">
+                          <table className="table table-bordered">
+                            <thead>
+                              <tr>
+                                <td>No.</td>
+                                <td>Item</td>
+                                <td>Quantity</td>
+                                <td>Price</td>
+                                <td>VAT</td>
+                                <td>Total</td>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>1</td>
+                                <td>{order?.product}</td>
+                                <td>{paymentDetail?.quantity}</td>
+                                <td>{paymentDetail?.price}</td>
+                                <td>{paymentDetail?.vat}</td>
+                                <td>{paymentDetail?.total}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </>
+                    )}
+
+                    {/* fixed */}
                     {paymentDetail?.plan === "Fixed - 50/50" &&
                       paymentDetail?.breakdown && (
                         <>
@@ -578,6 +650,18 @@ function OrdersDetail() {
                           </div>
                         </>
                       )}
+                  </div>
+
+                  <div className="mb-3">
+                    <p className="card-text h6">Payment Methods:</p>
+                    <p className="card-text mb-1">Bank Transfer</p>
+                    <p className="card-text mb-1">Mobile Money - M-PESA</p>
+                    <Link
+                      to={`/pay/${order?.id}`}
+                      className="btn btn-outline-success btn-sm rounded-0"
+                    >
+                      MAKE PAYMENT
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -771,6 +855,36 @@ function OrdersDetail() {
                   <hr />
 
                   <div>
+                    {paymentDetail?.plan === "Fixed - upfront" && (
+                      <>
+                        <div className="table-responsive mt-3 mb-3">
+                          <table className="table table-bordered">
+                            <thead>
+                              <tr>
+                                <td>No.</td>
+                                <td>Item</td>
+                                <td>Quantity</td>
+                                <td>Price</td>
+                                <td>VAT</td>
+                                <td>Total</td>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>1</td>
+                                <td>{order?.product}</td>
+                                <td>{paymentDetail?.quantity}</td>
+                                <td>{paymentDetail?.price}</td>
+                                <td>{paymentDetail?.vat}</td>
+                                <td>{paymentDetail?.total}</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </>
+                    )}
+
+                    {/* Fixed - 50/50 */}
                     {paymentDetail?.plan === "Fixed - 50/50" &&
                       paymentDetail?.breakdown && (
                         <>
