@@ -101,7 +101,15 @@ function SiteDetail() {
                 >
                   Edit
                 </Link>
-                <Link className="btn btn-sm btn-outline-success">Order</Link>
+                <Link className="btn btn-sm btn-outline-success me-2">
+                  Order
+                </Link>
+                <Link
+                  onClick={() => alert("Site Deleted")}
+                  className="btn btn-outline-danger btn-sm"
+                >
+                  Delete
+                </Link>
 
                 <Modal
                   show={show}
@@ -289,7 +297,9 @@ function SiteDetail() {
                         className="list-group-item d-flex justify-content-between align-items-start"
                       >
                         <div className="ms-2 me-auto">
-                          <div className="fw-bold">{item.name}</div>
+                          <div className="fw-bold">
+                            <Link to={`/employees/${item.id}/detail`}>{item?.name}</Link>
+                          </div>
                           {item.role} <br />
                           {item.phone} <br />
                           {item.email}
