@@ -22,7 +22,7 @@ function BuildersPlant() {
 
   return (
     <>
-      <div className="container p-3">
+      <div className="container-fluid p-3">
         <section className="d-flex justify-content-between align-items-center">
           <Link to={appLinks?.Inventory}>
             <i className="bi bi-arrow-left me-1"></i>

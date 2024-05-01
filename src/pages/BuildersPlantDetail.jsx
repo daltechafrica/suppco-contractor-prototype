@@ -15,7 +15,7 @@ function BuildersPlantDetail() {
       <div className="container-fluid px-3 py-3">
         <h5>
           <span>
-            <Link to={appLinks?.Dashboard}>
+            <Link to={appLinks?.BuildersPlant}>
               <i className="bi bi-arrow-left me-1"></i>
             </Link>
           </span>
