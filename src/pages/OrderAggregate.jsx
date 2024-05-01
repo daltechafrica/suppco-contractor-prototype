@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { shell } from "../data/shellEquipment";
+import { appLinks } from "../constants/links";
 
 function OrderAggregate() {
   const { shellItemId } = useParams();
@@ -20,7 +21,7 @@ function OrderAggregate() {
                 <i className="bi bi-arrow-left me-1"></i>
               </Link>
             </span>
-            {selectedItem?.item} Order Data
+            {selectedItem?.item} Order Specifications
           </h2>
           <hr />
         </section>
@@ -53,12 +54,12 @@ function OrderAggregate() {
             <div className="mb-3">
               <div className="d-flex align-content-center justify-content-between mb-3">
                 <div>
-                  <Link className="btn btn-outline-danger">Cancel</Link>
+                  <Link className="btn btn-sm btn-outline-danger">Cancel</Link>
                 </div>
                 <div>
                   <Link
-                    to={`/order-form/${shellItemId}/aggregate`}
-                    className="btn btn-outline-success"
+                    to={appLinks?.ShellEquipmentSuppliers}
+                    className="btn btn-sm btn-outline-success"
                   >
                     Proceed
                   </Link>

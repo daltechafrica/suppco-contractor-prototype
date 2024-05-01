@@ -1,11 +1,9 @@
 import React from "react";
 import Modal from "react-bootstrap/Modal";
 import { Link } from "react-router-dom";
-import { appLinks } from "../constants/links";
 
-const BuildersPlantSupplierDetails = ({ onClose, supplier }) => {
+const ShellSupplierModal = ({ onClose, supplier }) => {
   const productSpecs = supplier?.productSpecifications;
-
   return (
     <>
       <Modal show={true} onHide={onClose} dialogClassName="modal-lg">
@@ -19,6 +17,7 @@ const BuildersPlantSupplierDetails = ({ onClose, supplier }) => {
             onClick={onClose}
           ></button>
         </div>
+
         <div className="modal-body">
           <section className="px-3">
             {/* supplier details */}
@@ -46,30 +45,34 @@ const BuildersPlantSupplierDetails = ({ onClose, supplier }) => {
               <table className="table table-bordered">
                 <thead>
                   <tr>
-                    <th>Product Name</th>
-                    <th>Manufacturer</th>
-                    <th>Model</th>
-                    <th>Year</th>
-                    <th>Weight</th>
-                    <th>Lifting Height</th>
-                    <th>Horsepower</th>
-                    <th>Rate Per Hour</th>
-                    <th>Lease Type</th>
+                    <th>Density</th>
+                    <th>Moisture Content</th>
+                    <th>Gradiation</th>
+                    <th>Size</th>
+                    <th>Shape</th>
+                    <th>Variation</th>
+                    <th>Wood Species</th>
+                    <th>Grade</th>
+                    <th>Treatment</th>
+                    <th>Surface Finish</th>
+                    <th>Other</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {productSpecs?.map((spec) => (
+                  {productSpecs?.map((location) => (
                     <>
-                      <tr key={spec?.id}>
-                        <td>{spec?.title}</td>
-                        <td>{spec?.manufacturer}</td>
-                        <td>{spec?.model}</td>
-                        <td>{spec?.year}</td>
-                        <td>{spec?.weight}</td>
-                        <td>{spec?.liftingHeight}</td>
-                        <td>{spec?.horsepower}</td>
-                        <td>{spec?.ratePerHour}</td>
-                        <td>{spec?.leaseType}</td>
+                      <tr key={location?.id}>
+                        <td>{location.density}</td>
+                        <td>{location.moistureContent}</td>
+                        <td>{location.gradiation}</td>
+                        <td>{location.size}</td>
+                        <td>{location.shape}</td>
+                        <td>{location.variation}</td>
+                        <td>{location.woodSpecies}</td>
+                        <td>{location.grade}</td>
+                        <td>{location.treatment}</td>
+                        <td>{location.surfaceFinish}</td>
+                        <td>{location.other}</td>
                       </tr>
                     </>
                   ))}
@@ -128,9 +131,10 @@ const BuildersPlantSupplierDetails = ({ onClose, supplier }) => {
             </div>
           </section>
         </div>
+
         <div className="modal-footer">
           <Link
-            to={appLinks?.BuildersContractorInput}
+            to={`/aggregate/${supplier.id}/order-form`}
             className="btn btn-sm btn-outline-success"
           >
             Proceed
@@ -141,4 +145,4 @@ const BuildersPlantSupplierDetails = ({ onClose, supplier }) => {
   );
 };
 
-export default BuildersPlantSupplierDetails;
+export default ShellSupplierModal;

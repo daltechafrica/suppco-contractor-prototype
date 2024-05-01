@@ -39,6 +39,13 @@ const ShellEquipmentDetail = React.lazy(() =>
   import("../pages/ShellEquipmentDetail")
 );
 const OrderAggregate = React.lazy(() => import("../pages/OrderAggregate"));
+const ShellEquipmentSuppliers = React.lazy(() =>
+  import("../pages/ShellEquipmentSuppliers")
+);
+const AggregateContractorInput = React.lazy(() =>
+  import("../pages/AggregateContractorInput")
+);
+const AggregatePreview = React.lazy(() => import("../pages/AggregatePreview"));
 
 function BaseRouter() {
   return (
@@ -111,6 +118,18 @@ function BaseRouter() {
             <Route
               path="/order/:shellItemId/aggregate"
               element={<OrderAggregate />}
+            />
+            <Route
+              path={appLinks?.ShellEquipmentSuppliers}
+              element={<ShellEquipmentSuppliers />}
+            />
+            <Route
+              path={`/aggregate/:id/order-form`}
+              element={<AggregateContractorInput />}
+            />
+            <Route
+              path={`/preview/:id/submit`}
+              element={<AggregatePreview />}
             />
           </Routes>
           <Footer />

@@ -17,6 +17,12 @@ const appLinks = {
   BuildersContractorInput: "/builders-contractor-input",
   BuildersPlantOrderSummary: "/builders-plant/order-summary",
   BuildersPlantIdentification: "/builders-plant-identification",
+  BuildersPlantCategoryDetail: "/category/:categoryId/detail",
+  ShellEquipmentDetail: "/shell/:shellItemId/inventory",
+  OrderAggregate: "/order/:shellItemId/aggregate",
+  BuildersPlantSupplierDetail: "/supplier/:supplierId/detail",
+  BuildersContractorInputDetail: "/contractor-input/:contractorInputId/detail",
+  ShellEquipmentSuppliers: "/shell-equipment-suppliers",
 };
 
 export { appLinks };

@@ -1,17 +1,17 @@
 import React, { useState } from "react";
-import { appLinks } from "../constants/links";
 import { Link } from "react-router-dom";
-import { buildersSuppliers } from "../data/suppliers";
-import BuildersPlantSupplierDetails from "./BuildersPlantSupplierDetails";
+import { appLinks } from "../constants/links";
+import { shellSuppliers } from "../data/suppliers";
+import ShellSupplierModal from "./ShellSupplierModal";
 
-function BuildersPlantSupplier() {
+function ShellEquipmentSuppliers() {
   const [selectedSupplierId, setSelectedSupplierId] = useState(null);
   return (
     <>
       <div className="container py-3">
         <h5>
           <span>
-            <Link to={appLinks?.BuildersPlantIdentification}>
+            <Link to={appLinks?.ShellEquipment}>
               <i className="bi bi-arrow-left me-1"></i>
             </Link>
           </span>
@@ -19,9 +19,9 @@ function BuildersPlantSupplier() {
         </h5>
         <hr />
 
-        <section className="mt-3 mb-3">
+        <section>
           <div className="row">
-            {buildersSuppliers?.map((supplier) => (
+            {shellSuppliers?.map((supplier) => (
               <>
                 <div className="col-md-6 col-sm-12 mb-3" key={supplier?.id}>
                   <div className="card mb-3 rounded-0 h-100">
@@ -32,18 +32,22 @@ function BuildersPlantSupplier() {
                         {supplier?.location}
                       </p>
                       <p className="card-text">
-                        <strong>Rate: </strong>
-                        {supplier?.paymentConditions?.ratePerHour} Ksh
+                        <strong>Units of Measurement: </strong>
+                        {supplier?.paymentConditions?.priceMeasure}
                       </p>
                       <p className="card-text">
-                        <strong>Type of Lease: </strong>
-                        {supplier?.paymentConditions?.leaseType}
+                        <strong>Price: </strong>
+                        {supplier?.paymentConditions?.pricePerKg}
                       </p>
+                      {/* <p className="card-text">
+                        <strong>Location: </strong>
+                        {supplier?.location}
+                      </p> */}
                       <Link
                         onClick={() => setSelectedSupplierId(supplier?.id)}
                         className="btn btn-sm btn-outline-success card-link"
                       >
-                        Select
+                        More Details
                       </Link>
                     </div>
                   </div>
@@ -53,8 +57,8 @@ function BuildersPlantSupplier() {
           </div>
 
           {selectedSupplierId && (
-            <BuildersPlantSupplierDetails
-              supplier={buildersSuppliers?.find(
+            <ShellSupplierModal
+              supplier={shellSuppliers?.find(
                 (supplier) => supplier?.id === selectedSupplierId
               )}
               onClose={() => setSelectedSupplierId(null)}
@@ -66,4 +70,4 @@ function BuildersPlantSupplier() {
   );
 }
 
-export default BuildersPlantSupplier;
+export default ShellEquipmentSuppliers;
