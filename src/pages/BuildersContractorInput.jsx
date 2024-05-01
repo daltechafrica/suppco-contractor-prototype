@@ -227,6 +227,26 @@ function BuildersContractorInput() {
                 </div>
               </form>
             </div>
+            <div className="mb-3">
+              <div className="d-flex align-content-center justify-content-between mb-3">
+                <div>
+                  <Link
+                    to={appLinks?.BuildersPlantSupplier}
+                    className="btn btn-sm btn-outline-danger"
+                  >
+                    Cancel
+                  </Link>
+                </div>
+                <div>
+                  <Link
+                    to={appLinks?.BuildersPlantOrderSummary}
+                    className="btn btn-sm btn-outline-success"
+                  >
+                    Proceed
+                  </Link>
+                </div>
+              </div>
+            </div>
           </form>
         </section>
       </div>
