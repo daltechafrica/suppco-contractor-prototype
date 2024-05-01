@@ -35,6 +35,10 @@ const BuildersPlantCategoryDetail = React.lazy(() =>
 const BuildersPlantIdentification = React.lazy(() =>
   import("../pages/BuildersPlantIdentification")
 );
+const ShellEquipmentDetail = React.lazy(() =>
+  import("../pages/ShellEquipmentDetail")
+);
+const OrderAggregate = React.lazy(() => import("../pages/OrderAggregate"));
 
 function BaseRouter() {
   return (
@@ -99,6 +103,14 @@ function BaseRouter() {
             <Route
               path={appLinks?.BuildersPlantIdentification}
               element={<BuildersPlantIdentification />}
+            />
+            <Route
+              path="/shell/:shellItemId/inventory"
+              element={<ShellEquipmentDetail />}
+            />
+            <Route
+              path="/order/:shellItemId/aggregate"
+              element={<OrderAggregate />}
             />
           </Routes>
           <Footer />
