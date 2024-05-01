@@ -14,6 +14,12 @@ function Inventory() {
           </span>
           Inventory
         </h5>
+
+        <section>
+          <div className="row">
+            <div className="col-md-6 col-sm-12"></div>
+          </div>
+        </section>
       </div>
     </>
   );
