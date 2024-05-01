@@ -71,7 +71,15 @@ function EmployeeDetail() {
             </div>
 
             <div className="row">
-              <div className="col-md-6 col-sm-12">
+              <div className="col-md-4 col-sm-12">
+                <div className="mb-3">
+                  <label htmlFor="image" className="form-label">
+                    Image
+                  </label>
+                  <input type="file" className="form-control" />
+                </div>
+              </div>
+              <div className="col-md-4 col-sm-12">
                 <div className="mb-3">
                   <label className="form-label" htmlFor="phone">
                     Phone
@@ -84,7 +92,7 @@ function EmployeeDetail() {
                   />
                 </div>
               </div>
-              <div className="col-md-6 col-sm-12">
+              <div className="col-md-4 col-sm-12">
                 <div className="mb-3">
                   <label className="form-label" htmlFor="address">
                     Address
