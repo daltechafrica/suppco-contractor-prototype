@@ -29,6 +29,12 @@ const BuildersContractorInput = React.lazy(() =>
 const BuildersPlantOrderSummary = React.lazy(() =>
   import("../pages/BuildersPlantOrderSummary")
 );
+const BuildersPlantCategoryDetail = React.lazy(() =>
+  import("../pages/BuildersPlantCategoryDetail")
+);
+const BuildersPlantIdentification = React.lazy(() =>
+  import("../pages/BuildersPlantIdentification")
+);
 
 function BaseRouter() {
   return (
@@ -85,6 +91,14 @@ function BaseRouter() {
             <Route
               path={appLinks?.BuildersPlantOrderSummary}
               element={<BuildersPlantOrderSummary />}
+            />
+            <Route
+              path={`/category/:id/detail`}
+              element={<BuildersPlantCategoryDetail />}
+            />
+            <Route
+              path={appLinks?.BuildersPlantIdentification}
+              element={<BuildersPlantIdentification />}
             />
           </Routes>
           <Footer />

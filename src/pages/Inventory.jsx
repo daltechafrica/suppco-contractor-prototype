@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { appLinks } from "../constants/links";
 import { shell } from "../data/shellEquipment";
-import { buildersPlant } from "../data/buildersPlant";
+import { plant } from "../data/buildersPlant";
 
 function Inventory() {
   const ShellEquipmentCount = shell?.length;
-  const BuildersCount = buildersPlant?.length;
+  const BuildersCount = plant?.length;
 
   return (
     <>
@@ -33,6 +33,27 @@ function Inventory() {
               </thead>
               <tbody>
                 <tr>
+                  <td>Site Equipment</td>
+                  <td>0</td>
+                  <td>
+                    <Link className="btn btn-sm btn-outline-primary">View</Link>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Shell Equipment</td>
+                  <td>{ShellEquipmentCount}</td>
+                  <td>
+                    <Link
+                      to={appLinks?.ShellEquipment}
+                      className="btn btn-sm btn-outline-primary"
+                    >
+                      View
+                    </Link>
+                  </td>
+                </tr>
+
+                <tr>
                   <td>Builders Plant</td>
                   <td>{BuildersCount}</td>
                   <td>
@@ -44,16 +65,20 @@ function Inventory() {
                     </Link>
                   </td>
                 </tr>
+
                 <tr>
-                  <td>Shell Equipment</td>
-                  <td>{ShellEquipmentCount}</td>
+                  <td>Plumbing</td>
+                  <td>0</td>
                   <td>
-                    <Link
-                      to={appLinks?.ShellEquipment}
-                      className="btn btn-sm btn-outline-primary"
-                    >
-                      View
-                    </Link>
+                    <Link className="btn btn-sm btn-outline-primary">View</Link>
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Electricity</td>
+                  <td>0</td>
+                  <td>
+                    <Link className="btn btn-sm btn-outline-primary">View</Link>
                   </td>
                 </tr>
               </tbody>
