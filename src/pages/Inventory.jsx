@@ -36,7 +36,7 @@ function Inventory() {
                   <td>{BuildersCount}</td>
                   <td>
                     <Link
-                      to={appLinks?.Builders}
+                      to={appLinks?.BuildersPlant}
                       className="btn btn-sm btn-outline-primary"
                     >
                       View

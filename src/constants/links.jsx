@@ -9,6 +9,9 @@ const appLinks = {
   SiteDetail: "/sites/:siteId/detail",
   EmployeeDetail: "/employees/:employeeId/detail",
   Pay: "/pay/:orderId",
+  OrdersDetail: "/orders/:orderId/detail",
+  BuildersPlant: "/builders-plant",
+  ShellEquipment: "/shell-equipment",
 };
 
 export { appLinks };
