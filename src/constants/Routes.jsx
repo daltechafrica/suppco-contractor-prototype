@@ -23,6 +23,9 @@ const BuildersPlantDetail = React.lazy(() =>
 const BuildersPlantSupplier = React.lazy(() =>
   import("../pages/BuildersPlantSupplier")
 );
+const BuildersContractorInput = React.lazy(() =>
+  import("../pages/BuildersContractorInput")
+);
 
 function BaseRouter() {
   return (
@@ -71,6 +74,10 @@ function BaseRouter() {
             <Route
               path={appLinks?.BuildersPlantSupplier}
               element={<BuildersPlantSupplier />}
+            />
+            <Route
+              path={appLinks?.BuildersContractorInput}
+              element={<BuildersContractorInput />}
             />
           </Routes>
           <Footer />

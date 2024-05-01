@@ -35,6 +35,20 @@ const buildersSuppliers = [
       pricingMethod: "Distance",
       rate: 1000,
     },
+    productSpecifications: [
+      {
+        id: 1,
+        title: "Cranes",
+        manufacturer: "Caterpiller",
+        model: "CR123",
+        year: "2024",
+        weight: "12T",
+        liftingHeight: "15m",
+        horsepower: "2000hp",
+        leaseType: "wet",
+        ratePerHour: "20000",
+      },
+    ],
   },
   {
     id: 2,
@@ -66,6 +80,20 @@ const buildersSuppliers = [
       pricingMethod: "Distance",
       rate: 1000,
     },
+    productSpecifications: [
+      {
+        id: 1,
+        title: "Cranes",
+        manufacturer: "Caterpiller",
+        model: "CR123",
+        year: "2024",
+        weight: "12T",
+        liftingHeight: "15m",
+        horsepower: "2000hp",
+        leaseType: "wet",
+        ratePerHour: "20000",
+      },
+    ],
   },
   {
     id: 3,
@@ -97,6 +125,20 @@ const buildersSuppliers = [
       pricingMethod: null,
       rate: 0,
     },
+    productSpecifications: [
+      {
+        id: 1,
+        title: "Cranes",
+        manufacturer: "Caterpiller",
+        model: "CR123",
+        year: "2024",
+        weight: "12T",
+        liftingHeight: "15m",
+        horsepower: "2000hp",
+        leaseType: "wet",
+        ratePerHour: "20000",
+      },
+    ],
   },
   {
     id: 4,
@@ -134,6 +176,20 @@ const buildersSuppliers = [
       pricingMethod: "Weight",
       rate: 2000,
     },
+    productSpecifications: [
+      {
+        id: 1,
+        title: "Cranes",
+        manufacturer: "Caterpiller",
+        model: "CR123",
+        year: "2024",
+        weight: "12T",
+        liftingHeight: "15m",
+        horsepower: "2000hp",
+        leaseType: "wet",
+        ratePerHour: "20000",
+      },
+    ],
   },
 ];
 

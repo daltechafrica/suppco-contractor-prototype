@@ -14,6 +14,7 @@ const appLinks = {
   ShellEquipment: "/shell-equipment",
   BuildersPlantDetail: "/builders-plant/:builderId/detail",
   BuildersPlantSupplier: "/builders-plant/supplier",
+  BuildersContractorInput: "/builders-contractor-input",
 };
 
 export { appLinks };
