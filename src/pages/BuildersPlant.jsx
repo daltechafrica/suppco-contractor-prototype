@@ -22,7 +22,7 @@ function BuildersPlant() {
 
   return (
     <>
-      <div className="container-fluid p-3">
+      <div className="container p-3">
         <section className="d-flex justify-content-between align-items-center">
           <Link to={appLinks?.Inventory}>
             <i className="bi bi-arrow-left me-1"></i>
@@ -49,17 +49,17 @@ function BuildersPlant() {
             <table className="table table-bordered">
               <thead>
                 <tr>
-                  <td>ID</td>
-                  <td>Name</td>
-                  <td>Manufacturer</td>
-                  <td>Model</td>
-                  <td>Year</td>
-                  <td>Weight</td>
-                  <td>Lease Type</td>
-                  <td>Rate Per Hour</td>
-                  <td>Location</td>
-                  <td>Supplier</td>
-                  <td>Actions</td>
+                  <th>ID</th>
+                  <th>Name</th>
+                  <th>Manufacturer</th>
+                  <th>Model</th>
+                  <th>Year</th>
+                  <th>Weight</th>
+                  <th>Lease Type</th>
+                  <th>Rate Per Hour</th>
+                  <th>Location</th>
+                  <th>Supplier</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
               <tbody>
