@@ -25,7 +25,7 @@ function BuildersPlantOrderSummary() {
               <i className="bi bi-arrow-left me-1"></i>
             </Link>
           </span>
-          Order Summary
+          Order Summary - Please confirm your order
         </h5>
         <hr />
 
@@ -253,10 +253,150 @@ function BuildersPlantOrderSummary() {
             </div>
           </div>
 
+          {/* Invoice */}
+          <div className="card mt-3 rounded-0">
+            <h6 className="card-header bg-white">Invoice</h6>
+            <div className="card-body">
+              <div className="row mb-3">
+                <div className="col-md-6 col-sm-12">
+                  <p className="card-text font-monospace">
+                    Supplier Name: {placedOrder?.supplierDetail?.name} <br />
+                    Supplier Company: {placedOrder?.supplierCompany?.name}
+                  </p>
+                </div>
+                <div className="col-md-6 col-sm-12">
+                  <p className="card-text text-end font-monospace">
+                    Ref No.: {placedOrder?.id} <br />
+                    Date: {placedOrder?.created}
+                  </p>
+                </div>
+              </div>
+              <hr />
+
+              <div>
+                {paymentDetail?.plan === "Fixed - upfront" && (
+                  <>
+                    <div className="table-responsive mt-3 mb-3">
+                      <table className="table table-bordered">
+                        <thead>
+                          <tr>
+                            <td>No.</td>
+                            <td>Item</td>
+                            <td>Quantity</td>
+                            <td>Price</td>
+                            <td>VAT</td>
+                            <td>Total</td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>1</td>
+                            <td>{placedOrder?.product}</td>
+                            <td>{paymentDetail?.quantity}</td>
+                            <td>{paymentDetail?.price}</td>
+                            <td>{paymentDetail?.vat}</td>
+                            <td>{paymentDetail?.total}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </>
+                )}
+
+                {/* Fixed Plan */}
+                {paymentDetail?.plan === "Fixed - 50/50" &&
+                  paymentDetail?.breakdown && (
+                    <>
+                      <div className="table-responsive">
+                        <table className="table table-bordered">
+                          <thead>
+                            <tr>
+                              <th>Name</th>
+                              <th>Amount</th>
+                              <th>Date</th>
+                              <th>Status</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {paymentDetail?.breakdown?.map((item) => (
+                              <tr>
+                                <td>{item?.name}</td>
+                                <td>{item?.amount}</td>
+                                <td>{item?.date}</td>
+                                <td>
+                                  <button
+                                    className={`btn btn-sm ${
+                                      item.status === "Pending Payment"
+                                        ? "btn-warning"
+                                        : "btn-success"
+                                    }`}
+                                  >
+                                    {item.status}
+                                  </button>
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </>
+                  )}
+
+                {/* Negotiable Plan */}
+                {paymentDetail?.plan === "Negotiable Plan" &&
+                  paymentDetail?.breakdown && (
+                    <>
+                      <div className="table-responsive">
+                        <table className="table table-bordered">
+                          <thead>
+                            <tr>
+                              <th>Name</th>
+                              <th>Amount</th>
+                              <th>Date</th>
+                              <th>Status</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {paymentDetail?.breakdown?.map((item) => (
+                              <tr>
+                                <td>{item?.name}</td>
+                                <td>{item?.amount}</td>
+                                <td>{item?.date}</td>
+                                <td>
+                                  <button
+                                    className={`btn btn-sm ${
+                                      item.status === "Pending Payment"
+                                        ? "btn-warning"
+                                        : "btn-success"
+                                    }`}
+                                  >
+                                    {item.status}
+                                  </button>
+                                </td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    </>
+                  )}
+              </div>
+
+              <div className="mb-3">
+                <p className="card-text h6">Payment Methods:</p>
+                <p className="card-text mb-1">Bank Transfer</p>
+                <p className="card-text mb-1">Mobile Money - M-PESA</p>
+              </div>
+              <p className="card-text text-secondary fst-italic">
+                System generated invoice
+              </p>
+            </div>
+          </div>
+
           {/* submit button */}
           <Link
             onClick={handleShow}
-            className="btn btn-sm btn-outline-success text-uppercase"
+            className="btn btn-sm btn-outline-success text-uppercase mt-3"
           >
             Submit
           </Link>
