@@ -81,7 +81,7 @@ function BuildersContractorInput() {
             <h5 className="fw-bold">Delivery Details</h5>
             <hr />
             <div className="row">
-              <div className="col-md-4 col-sm-12">
+              <div className="col-md-6 col-sm-12">
                 <div className="mb-3">
                   <label htmlFor="delivery" className="form-label">
                     Delivery Option
@@ -94,7 +94,7 @@ function BuildersContractorInput() {
                 </div>
               </div>
 
-              <div className="col-md-4 col-sm-12">
+              <div className="col-md-6 col-sm-12">
                 <div className="mb-3">
                   <label htmlFor="destination" className="form-label">
                     Delivery Destination
@@ -107,18 +107,33 @@ function BuildersContractorInput() {
                   </select>
                 </div>
               </div>
-
-              <div className="col-md-4 col-sm-12">
+            </div>
+            <div className="row">
+              <div className="col-md-9 col-sm-12">
                 <div className="mb-3">
                   <label htmlFor="timeline" className="form-label">
                     Delivery Timeline
                   </label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    name="timeline"
-                  />
+                  <div className="input-group">
+                    <input type="number" className="form-control" />
+                    <select
+                      name="timeline"
+                      id="timeline"
+                      className="form-select"
+                    >
+                      <option value="days">Days</option>
+                      <option value="weeks">Weeks</option>
+                      <option value="months">Months</option>
+                    </select>
+                  </div>
                 </div>
+              </div>
+
+              <div className="col-md-3 col-sm-12">
+                <label htmlFor="deadline" className="form-label">
+                  Delivery Deadline
+                </label>
+                <input type="date" className="form-control" />
               </div>
             </div>
             <hr />
@@ -126,6 +141,28 @@ function BuildersContractorInput() {
             {/* payment details */}
             <h5 className="fw-bold">Payment Details</h5>
             <hr />
+            <div className="mb-3">
+              <label htmlFor="total" className="form-label">
+                Delivery Charges
+              </label>
+              <input
+                type="number"
+                disabled
+                placeholder="2000"
+                className="form-control"
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="total" className="form-label">
+                Total - (Inclusive of VAT)
+              </label>
+              <input
+                type="number"
+                disabled
+                placeholder="230000"
+                className="form-control"
+              />
+            </div>
             <div className="mb-3">
               <label htmlFor="plans" className="form-label">
                 Payment Plan
@@ -173,7 +210,7 @@ function BuildersContractorInput() {
                   <div className="row">
                     <div className="col-md-6 col-sm-12 mb-2">
                       <label htmlFor="amount" className="form-label">
-                        Enter Amount
+                        Enter Percentage
                       </label>
                       <input type="number" className="form-control" />
                     </div>
