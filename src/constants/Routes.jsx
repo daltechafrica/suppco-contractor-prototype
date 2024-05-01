@@ -17,6 +17,9 @@ const EmployeeDetail = React.lazy(() => import("../pages/EmployeeDetail"));
 const Pay = React.lazy(() => import("../pages/Pay"));
 const BuildersPlant = React.lazy(() => import("../pages/BuildersPlant"));
 const ShellEquipment = React.lazy(() => import("../pages/ShellEquipment"));
+const BuildersPlantDetail = React.lazy(() =>
+  import("../pages/BuildersPlantDetail")
+);
 
 function BaseRouter() {
   return (
@@ -57,6 +60,10 @@ function BaseRouter() {
             <Route
               path={appLinks.ShellEquipment}
               element={<ShellEquipment />}
+            />
+            <Route
+              path={appLinks?.BuildersPlantDetail}
+              element={<BuildersPlantDetail />}
             />
           </Routes>
           <Footer />

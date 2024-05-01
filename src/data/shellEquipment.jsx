@@ -39,8 +39,8 @@ const shell = [
               {
                 id: 2,
                 site: {
-                  name: "Site E",
-                  location: "Location E",
+                  name: "Site D",
+                  location: "Location D",
                 },
                 density: "12344",
                 moistureContent: "12344",

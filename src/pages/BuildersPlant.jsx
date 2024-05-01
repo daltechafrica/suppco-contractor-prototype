@@ -77,7 +77,7 @@ function BuildersPlant() {
                     <td>{item?.supplier?.name}</td>
                     <td>
                       <Link
-                        to={`/${appLinks?.BuildersPlant}/${item?.id}/detail`}
+                        to={`/builders-plant/${item?.id}/detail`}
                         className="btn btn-sm btn-outline-primary"
                       >
                         View

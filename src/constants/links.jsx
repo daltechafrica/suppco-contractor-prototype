@@ -12,6 +12,7 @@ const appLinks = {
   OrdersDetail: "/orders/:orderId/detail",
   BuildersPlant: "/builders-plant",
   ShellEquipment: "/shell-equipment",
+  BuildersPlantDetail: "/builders-plant/:builderId/detail",
 };
 
 export { appLinks };
