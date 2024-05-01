@@ -13,6 +13,7 @@ const appLinks = {
   BuildersPlant: "/builders-plant",
   ShellEquipment: "/shell-equipment",
   BuildersPlantDetail: "/builders-plant/:builderId/detail",
+  BuildersPlantSupplier: "/builders-plant/supplier",
 };
 
 export { appLinks };

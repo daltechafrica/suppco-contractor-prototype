@@ -20,6 +20,9 @@ const ShellEquipment = React.lazy(() => import("../pages/ShellEquipment"));
 const BuildersPlantDetail = React.lazy(() =>
   import("../pages/BuildersPlantDetail")
 );
+const BuildersPlantSupplier = React.lazy(() =>
+  import("../pages/BuildersPlantSupplier")
+);
 
 function BaseRouter() {
   return (
@@ -64,6 +67,10 @@ function BaseRouter() {
             <Route
               path={appLinks?.BuildersPlantDetail}
               element={<BuildersPlantDetail />}
+            />
+            <Route
+              path={appLinks?.BuildersPlantSupplier}
+              element={<BuildersPlantSupplier />}
             />
           </Routes>
           <Footer />
