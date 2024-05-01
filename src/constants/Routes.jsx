@@ -14,6 +14,7 @@ const Employees = React.lazy(() => import("../pages/Employees"));
 const Sites = React.lazy(() => import("../pages/Sites"));
 const SiteDetail = React.lazy(() => import("../pages/SiteDetail"));
 const EmployeeDetail = React.lazy(() => import("../pages/EmployeeDetail"));
+const Pay = React.lazy(() => import("../pages/Pay"));
 
 function BaseRouter() {
   return (
@@ -49,6 +50,7 @@ function BaseRouter() {
               path={appLinks.EmployeeDetail}
               element={<EmployeeDetail />}
             />
+            <Route path={appLinks.Pay} element={<Pay />} />
           </Routes>
           <Footer />
         </Suspense>

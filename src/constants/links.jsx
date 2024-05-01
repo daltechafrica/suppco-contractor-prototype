@@ -8,6 +8,7 @@ const appLinks = {
   Sites: "/sites",
   SiteDetail: "/sites/:siteId/detail",
   EmployeeDetail: "/employees/:employeeId/detail",
+  Pay: "/pay/:orderId",
 };
 
 export { appLinks };
