@@ -139,30 +139,86 @@ function OrdersDetail() {
                   Delivery Details - {delivery?.status}
                 </h6>
                 <div className="card-body">
-                  <p className="card-text mb-2">
-                    <strong>Option: </strong>
-                    {delivery?.option}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Address: </strong>
-                    {delivery?.destination}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Pricing: </strong>
-                    {delivery?.pricing}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Cost: </strong>
-                    {delivery?.cost}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Timeline: </strong>
-                    {delivery?.timeline}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Employee: </strong>
-                    {delivery?.employee}
-                  </p>
+                  <div className="row">
+                    <div className="col-md-4 col-sm-12 mb-3 border-end">
+                      <h6 className="card-title fw-bold">Basic Info</h6>
+                      <hr className="mb-1" />
+                      <p className="card-text mb-2">
+                        <strong>Option: </strong>
+                        {delivery?.option}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Address: </strong>
+                        {delivery?.destination}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Pricing: </strong>
+                        {delivery?.pricing}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Cost: </strong>
+                        {delivery?.cost}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Timeline: </strong>
+                        {delivery?.timeline}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Employee: </strong>
+                        {delivery?.employee}
+                      </p>
+                    </div>
+                    <div className="col-md-4 col-sm-12 mb-3 border-end">
+                      <h6 className="card-title fw-bold">
+                        Destination Info - {delivery?.destination}
+                      </h6>
+                      <hr className="mb-1" />
+                      <p className="card-text mb-2">
+                        <strong>Administrator: </strong>
+                        {delivery?.siteInfo.siteAdmin}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Address: </strong>
+                        {delivery?.siteInfo.siteAddress}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Phone: </strong>
+                        {delivery?.siteInfo.sitePhone}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Email: </strong>
+                        {delivery?.siteInfo.siteEmail}
+                      </p>
+                    </div>
+                    <div className="col-md-4 col-sm-12 mb-3">
+                      <h6 className="card-title fw-bold">Transit Info</h6>
+                      <hr className="mb-1" />
+                      <p className="card-text mb-2">
+                        <strong>Date: </strong>
+                        {delivery?.deliveryInfo?.date}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>State: </strong>
+                        {delivery?.deliveryInfo?.state}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Start Status: </strong>
+                        {delivery?.deliveryInfo?.startStatus}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Vehicle: </strong>
+                        {delivery?.deliveryInfo?.carType}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Driver: </strong>
+                        {delivery?.deliveryInfo?.driverName}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Driver Phone: </strong>
+                        {delivery?.deliveryInfo?.driverPhone}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -208,42 +264,143 @@ function OrdersDetail() {
                   </p>
                 </div>
               </div>
-              {paymentDetail?.plan === "Negotiable Plan" &&
-                paymentDetail?.breakdown && (
-                  <>
-                    <div className="card">
-                      <h6 className="card-header bg-white">
-                        Payment Breakdown
-                      </h6>
-                      <div className="card-body">
-                        <div className="table-responsive">
+
+              {/* Invoice */}
+              <div className="card mt-3 rounded-0">
+                <h6 className="card-header bg-white">Invoice</h6>
+                <div className="card-body">
+                  <div className="row mb-3">
+                    <div className="col-md-6 col-sm-12">
+                      <p className="card-text font-monospace">
+                        Supplier Name: {order?.supplierDetail?.name} <br />
+                        Supplier Company: {order?.supplierCompany?.name}
+                      </p>
+                    </div>
+                    <div className="col-md-6 col-sm-12">
+                      <p className="card-text text-end font-monospace">
+                        Ref No.: {order?.id} <br />
+                        Date: {order?.created}
+                      </p>
+                    </div>
+                  </div>
+                  <hr />
+
+                  <div>
+                    {paymentDetail?.plan === "Fixed - upfront" && (
+                      <>
+                        <div className="table-responsive mt-3 mb-3">
                           <table className="table table-bordered">
                             <thead>
                               <tr>
-                                <th>Name</th>
-                                <th>Amount</th>
-                                <th>Status</th>
+                                <td>No.</td>
+                                <td>Item</td>
+                                <td>Quantity</td>
+                                <td>Price</td>
+                                <td>VAT</td>
+                                <td>Total</td>
                               </tr>
                             </thead>
                             <tbody>
-                              {paymentDetail?.breakdown?.map((item) => (
-                                <tr>
-                                  <td>{item?.name}</td>
-                                  <td>{item?.amount}</td>
-                                  <td>
-                                    <button className="btn btn-warning btn-sm">
-                                      {item?.status}
-                                    </button>
-                                  </td>
-                                </tr>
-                              ))}
+                              <tr>
+                                <td>1</td>
+                                <td>{order?.product}</td>
+                                <td>{paymentDetail?.quantity}</td>
+                                <td>{paymentDetail?.price}</td>
+                                <td>{paymentDetail?.vat}</td>
+                                <td>{paymentDetail?.total}</td>
+                              </tr>
                             </tbody>
                           </table>
                         </div>
-                      </div>
-                    </div>
-                  </>
-                )}
+                      </>
+                    )}
+
+                    {/* Fixed Plan */}
+                    {paymentDetail?.plan === "Fixed - 50/50" &&
+                      paymentDetail?.breakdown && (
+                        <>
+                          <div className="table-responsive">
+                            <table className="table table-bordered">
+                              <thead>
+                                <tr>
+                                  <th>Name</th>
+                                  <th>Amount</th>
+                                  <th>Date</th>
+                                  <th>Status</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {paymentDetail?.breakdown?.map((item) => (
+                                  <tr>
+                                    <td>{item?.name}</td>
+                                    <td>{item?.amount}</td>
+                                    <td>{item?.date}</td>
+                                    <td>
+                                      <button
+                                        className={`btn btn-sm ${
+                                          item.status === "Pending Payment"
+                                            ? "btn-warning"
+                                            : "btn-success"
+                                        }`}
+                                      >
+                                        {item.status}
+                                      </button>
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </>
+                      )}
+
+                    {/* Negotiable Plan */}
+                    {paymentDetail?.plan === "Negotiable Plan" &&
+                      paymentDetail?.breakdown && (
+                        <>
+                          <div className="table-responsive">
+                            <table className="table table-bordered">
+                              <thead>
+                                <tr>
+                                  <th>Name</th>
+                                  <th>Amount</th>
+                                  <th>Date</th>
+                                  <th>Status</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {paymentDetail?.breakdown?.map((item) => (
+                                  <tr>
+                                    <td>{item?.name}</td>
+                                    <td>{item?.amount}</td>
+                                    <td>{item?.date}</td>
+                                    <td>
+                                      <button
+                                        className={`btn btn-sm ${
+                                          item.status === "Pending Payment"
+                                            ? "btn-warning"
+                                            : "btn-success"
+                                        }`}
+                                      >
+                                        {item.status}
+                                      </button>
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </>
+                      )}
+                  </div>
+
+                  <div className="mb-3">
+                    <p className="card-text h6">Payment Methods:</p>
+                    <p className="card-text mb-1">Bank Transfer</p>
+                    <p className="card-text mb-1">Mobile Money - M-PESA</p>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
         )}
@@ -343,30 +500,86 @@ function OrdersDetail() {
                   Delivery Details - {delivery?.status}
                 </h6>
                 <div className="card-body">
-                  <p className="card-text mb-2">
-                    <strong>Option: </strong>
-                    {delivery?.option}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Address: </strong>
-                    {delivery?.destination}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Pricing: </strong>
-                    {delivery?.pricing}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Cost: </strong>
-                    {delivery?.cost}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Timeline: </strong>
-                    {delivery?.timeline}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Employee: </strong>
-                    {delivery?.employee}
-                  </p>
+                  <div className="row">
+                    <div className="col-md-4 col-sm-12 mb-3 border-end">
+                      <h6 className="card-title fw-bold">Basic Info</h6>
+                      <hr className="mb-1" />
+                      <p className="card-text mb-2">
+                        <strong>Option: </strong>
+                        {delivery?.option}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Address: </strong>
+                        {delivery?.destination}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Pricing: </strong>
+                        {delivery?.pricing}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Cost: </strong>
+                        {delivery?.cost}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Timeline: </strong>
+                        {delivery?.timeline}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Employee: </strong>
+                        {delivery?.employee}
+                      </p>
+                    </div>
+                    <div className="col-md-4 col-sm-12 mb-3 border-end">
+                      <h6 className="card-title fw-bold">
+                        Destination Info - {delivery?.destination}
+                      </h6>
+                      <hr className="mb-1" />
+                      <p className="card-text mb-2">
+                        <strong>Administrator: </strong>
+                        {delivery?.siteInfo.siteAdmin}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Address: </strong>
+                        {delivery?.siteInfo.siteAddress}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Phone: </strong>
+                        {delivery?.siteInfo.sitePhone}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Email: </strong>
+                        {delivery?.siteInfo.siteEmail}
+                      </p>
+                    </div>
+                    <div className="col-md-4 col-sm-12 mb-3">
+                      <h6 className="card-title fw-bold">Transit Info</h6>
+                      <hr className="mb-1" />
+                      <p className="card-text mb-2">
+                        <strong>Date: </strong>
+                        {delivery?.deliveryInfo?.date}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>State: </strong>
+                        {delivery?.deliveryInfo?.state}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Start Status: </strong>
+                        {delivery?.deliveryInfo?.startStatus}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Vehicle: </strong>
+                        {delivery?.deliveryInfo?.carType}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Driver: </strong>
+                        {delivery?.deliveryInfo?.driverName}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Driver Phone: </strong>
+                        {delivery?.deliveryInfo?.driverPhone}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -415,48 +628,151 @@ function OrdersDetail() {
                   </p>
                 </div>
               </div>
-              {paymentDetail?.plan === "Negotiable Plan" &&
-                paymentDetail?.breakdown && (
-                  <>
-                    <div className="card">
-                      <h6 className="card-header bg-white">
-                        Payment Breakdown
-                      </h6>
-                      <div className="card-body">
-                        <div className="table-responsive">
+
+              {/* Invoice */}
+              <div className="card mt-3 rounded-0">
+                <h6 className="card-header bg-white">Invoice</h6>
+                <div className="card-body">
+                  <div className="row mb-3">
+                    <div className="col-md-6 col-sm-12">
+                      <p className="card-text font-monospace">
+                        Supplier Name: {order?.supplierDetail?.name} <br />
+                        Supplier Company: {order?.supplierCompany?.name}
+                      </p>
+                    </div>
+                    <div className="col-md-6 col-sm-12">
+                      <p className="card-text text-end font-monospace">
+                        Ref No.: {order?.id} <br />
+                        Date: {order?.created}
+                      </p>
+                    </div>
+                  </div>
+                  <hr />
+
+                  <div>
+                    {paymentDetail?.plan === "Fixed - upfront" && (
+                      <>
+                        <div className="table-responsive mt-3 mb-3">
                           <table className="table table-bordered">
                             <thead>
                               <tr>
-                                <th>Name</th>
-                                <th>Amount</th>
-                                <th>Status</th>
+                                <td>No.</td>
+                                <td>Item</td>
+                                <td>Quantity</td>
+                                <td>Price</td>
+                                <td>VAT</td>
+                                <td>Total</td>
                               </tr>
                             </thead>
                             <tbody>
-                              {paymentDetail?.breakdown?.map((item) => (
-                                <tr>
-                                  <td>{item?.name}</td>
-                                  <td>{item?.amount}</td>
-                                  <td>
-                                    <button
-                                      className={`btn btn-sm ${
-                                        item.status === "Paid"
-                                          ? "btn-success"
-                                          : "btn-warning"
-                                      }`}
-                                    >
-                                      {item?.status}
-                                    </button>
-                                  </td>
-                                </tr>
-                              ))}
+                              <tr>
+                                <td>1</td>
+                                <td>{order?.product}</td>
+                                <td>{paymentDetail?.quantity}</td>
+                                <td>{paymentDetail?.price}</td>
+                                <td>{paymentDetail?.vat}</td>
+                                <td>{paymentDetail?.total}</td>
+                              </tr>
                             </tbody>
                           </table>
                         </div>
-                      </div>
-                    </div>
-                  </>
-                )}
+                      </>
+                    )}
+
+                    {/* fixed */}
+                    {paymentDetail?.plan === "Fixed - 50/50" &&
+                      paymentDetail?.breakdown && (
+                        <>
+                          <div className="table-responsive">
+                            <table className="table table-bordered">
+                              <thead>
+                                <tr>
+                                  <th>Name</th>
+                                  <th>Amount</th>
+                                  <th>Date</th>
+                                  <th>Status</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {paymentDetail?.breakdown?.map((item) => (
+                                  <tr>
+                                    <td>{item?.name}</td>
+                                    <td>{item?.amount}</td>
+                                    <td>{item?.date}</td>
+                                    <td>
+                                      <button
+                                        className={`btn btn-sm ${
+                                          item.status === "Pending Payment"
+                                            ? "btn-warning"
+                                            : "btn-success"
+                                        }`}
+                                      >
+                                        {item.status}
+                                      </button>
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </>
+                      )}
+
+                    {/* Negotiable Plan */}
+                    {paymentDetail?.plan === "Negotiable Plan" &&
+                      paymentDetail?.breakdown && (
+                        <>
+                          <div className="table-responsive">
+                            <table className="table table-bordered">
+                              <thead>
+                                <tr>
+                                  <th>Name</th>
+                                  <th>Amount</th>
+                                  <th>Date</th>
+                                  <th>Status</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {paymentDetail?.breakdown?.map((item) => (
+                                  <tr>
+                                    <td>{item?.name}</td>
+                                    <td>{item?.amount}</td>
+                                    <td>{item?.date}</td>
+                                    <td>
+                                      <button
+                                        className={`btn btn-sm ${
+                                          item.status === "Pending Payment"
+                                            ? "btn-warning"
+                                            : item.status === "Due Payment"
+                                            ? "btn-danger"
+                                            : "btn-success"
+                                        }`}
+                                      >
+                                        {item.status}
+                                      </button>
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </>
+                      )}
+                  </div>
+
+                  <div className="mb-3">
+                    <p className="card-text h6">Payment Methods:</p>
+                    <p className="card-text mb-1">Bank Transfer</p>
+                    <p className="card-text mb-1">Mobile Money - M-PESA</p>
+                    <Link
+                      to={`/pay/${order?.id}`}
+                      className="btn btn-outline-success btn-sm rounded-0"
+                    >
+                      MAKE PAYMENT
+                    </Link>
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
         )}
@@ -556,30 +872,86 @@ function OrdersDetail() {
                   Delivery Details - {delivery?.status}
                 </h6>
                 <div className="card-body">
-                  <p className="card-text mb-2">
-                    <strong>Option: </strong>
-                    {delivery?.option}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Address: </strong>
-                    {delivery?.destination}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Pricing: </strong>
-                    {delivery?.pricing}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Cost: </strong>
-                    {delivery?.cost}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Timeline: </strong>
-                    {delivery?.timeline}
-                  </p>
-                  <p className="card-text mb-2">
-                    <strong>Employee: </strong>
-                    {delivery?.employee}
-                  </p>
+                  <div className="row">
+                    <div className="col-md-4 col-sm-12 mb-3 border-end">
+                      <h6 className="card-title fw-bold">Basic Info</h6>
+                      <hr className="mb-1" />
+                      <p className="card-text mb-2">
+                        <strong>Option: </strong>
+                        {delivery?.option}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Address: </strong>
+                        {delivery?.destination}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Pricing: </strong>
+                        {delivery?.pricing}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Cost: </strong>
+                        {delivery?.cost}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Timeline: </strong>
+                        {delivery?.timeline}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Employee: </strong>
+                        {delivery?.employee}
+                      </p>
+                    </div>
+                    <div className="col-md-4 col-sm-12 mb-3 border-end">
+                      <h6 className="card-title fw-bold">
+                        Destination Info - {delivery?.destination}
+                      </h6>
+                      <hr className="mb-1" />
+                      <p className="card-text mb-2">
+                        <strong>Administrator: </strong>
+                        {delivery?.siteInfo.siteAdmin}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Address: </strong>
+                        {delivery?.siteInfo.siteAddress}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Phone: </strong>
+                        {delivery?.siteInfo.sitePhone}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Email: </strong>
+                        {delivery?.siteInfo.siteEmail}
+                      </p>
+                    </div>
+                    <div className="col-md-4 col-sm-12 mb-3">
+                      <h6 className="card-title fw-bold">Transit Info</h6>
+                      <hr className="mb-1" />
+                      <p className="card-text mb-2">
+                        <strong>Date: </strong>
+                        {delivery?.deliveryInfo?.date}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>State: </strong>
+                        {delivery?.deliveryInfo?.state}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Start Status: </strong>
+                        {delivery?.deliveryInfo?.startStatus}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Vehicle: </strong>
+                        {delivery?.deliveryInfo?.carType}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Driver: </strong>
+                        {delivery?.deliveryInfo?.driverName}
+                      </p>
+                      <p className="card-text mb-2">
+                        <strong>Driver Phone: </strong>
+                        {delivery?.deliveryInfo?.driverPhone}
+                      </p>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -625,42 +997,137 @@ function OrdersDetail() {
                   </p>
                 </div>
               </div>
-              {paymentDetail?.plan === "Negotiable Plan" &&
-                paymentDetail?.breakdown && (
-                  <>
-                    <div className="card">
-                      <h6 className="card-header bg-white">
-                        Payment Breakdown
-                      </h6>
-                      <div className="card-body">
-                        <div className="table-responsive">
+
+              {/* Invoice */}
+              <div className="card mt-3 rounded-0">
+                <h6 className="card-header bg-white">Invoice</h6>
+                <div className="card-body">
+                  <div className="row mb-3">
+                    <div className="col-md-6 col-sm-12">
+                      <p className="card-text font-monospace">
+                        Supplier Name: {order?.supplierDetail?.name} <br />
+                        Supplier Company: {order?.supplierCompany?.name}
+                      </p>
+                    </div>
+                    <div className="col-md-6 col-sm-12">
+                      <p className="card-text text-end font-monospace">
+                        Ref No.: {order?.id} <br />
+                        Date: {order?.created}
+                      </p>
+                    </div>
+                  </div>
+                  <hr />
+
+                  <div>
+                    {paymentDetail?.plan === "Fixed - upfront" && (
+                      <>
+                        <div className="table-responsive mt-3 mb-3">
                           <table className="table table-bordered">
                             <thead>
                               <tr>
-                                <th>Name</th>
-                                <th>Amount</th>
-                                <th>Status</th>
+                                <td>No.</td>
+                                <td>Item</td>
+                                <td>Quantity</td>
+                                <td>Price</td>
+                                <td>VAT</td>
+                                <td>Total</td>
                               </tr>
                             </thead>
                             <tbody>
-                              {paymentDetail?.breakdown?.map((item) => (
-                                <tr>
-                                  <td>{item?.name}</td>
-                                  <td>{item?.amount}</td>
-                                  <td>
-                                    <button className="btn btn-success btn-sm">
-                                      {item?.status}
-                                    </button>
-                                  </td>
-                                </tr>
-                              ))}
+                              <tr>
+                                <td>1</td>
+                                <td>{order?.product}</td>
+                                <td>{paymentDetail?.quantity}</td>
+                                <td>{paymentDetail?.price}</td>
+                                <td>{paymentDetail?.vat}</td>
+                                <td>{paymentDetail?.total}</td>
+                              </tr>
                             </tbody>
                           </table>
                         </div>
-                      </div>
-                    </div>
-                  </>
-                )}
+                      </>
+                    )}
+
+                    {/* Fixed - 50/50 */}
+                    {paymentDetail?.plan === "Fixed - 50/50" &&
+                      paymentDetail?.breakdown && (
+                        <>
+                          <div className="table-responsive">
+                            <table className="table table-bordered">
+                              <thead>
+                                <tr>
+                                  <th>Name</th>
+                                  <th>Amount</th>
+                                  <th>Date</th>
+                                  <th>Status</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {paymentDetail?.breakdown?.map((item) => (
+                                  <tr>
+                                    <td>{item?.name}</td>
+                                    <td>{item?.amount}</td>
+                                    <td>{item?.date}</td>
+                                    <td>
+                                      <button
+                                        className={`btn btn-sm ${
+                                          item.status === "Pending Payment"
+                                            ? "btn-warning"
+                                            : "btn-success"
+                                        }`}
+                                      >
+                                        {item.status}
+                                      </button>
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </>
+                      )}
+
+                    {/* Negotiable Plan */}
+                    {paymentDetail?.plan === "Negotiable Plan" &&
+                      paymentDetail?.breakdown && (
+                        <>
+                          <div className="table-responsive">
+                            <table className="table table-bordered">
+                              <thead>
+                                <tr>
+                                  <th>Name</th>
+                                  <th>Amount</th>
+                                  <th>Date</th>
+                                  <th>Status</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                {paymentDetail?.breakdown?.map((item) => (
+                                  <tr>
+                                    <td>{item?.name}</td>
+                                    <td>{item?.amount}</td>
+                                    <td>{item?.date}</td>
+                                    <td>
+                                      <button
+                                        className={`btn btn-sm ${
+                                          item.status === "Pending Payment"
+                                            ? "btn-warning"
+                                            : "btn-success"
+                                        }`}
+                                      >
+                                        {item.status}
+                                      </button>
+                                    </td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                        </>
+                      )}
+                  </div>
+                </div>
+              </div>
             </div>
           </section>
         )}

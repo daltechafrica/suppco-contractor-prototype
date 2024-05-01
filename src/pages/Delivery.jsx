@@ -14,6 +14,8 @@ function Delivery() {
     (order) => order.deliveryPlan.status === "Active"
   );
 
+  console.log(pendingDeliveries);
+
   return (
     <>
       <div className="container py-3">
@@ -37,7 +39,9 @@ function Delivery() {
                   <th>Destination</th>
                   <th>Pricing</th>
                   <th>Employee</th>
+                  <th>State</th>
                   <th>Cost</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -48,7 +52,16 @@ function Delivery() {
                     <td>{delivery.deliveryPlan.destination}</td>
                     <td>{delivery.deliveryPlan.pricing || "N/A"}</td>
                     <td>{delivery.deliveryPlan.employee}</td>
+                    <td>{delivery.deliveryPlan?.deliveryInfo?.state}</td>
                     <td>{delivery.deliveryPlan.cost}</td>
+                    <td>
+                      <Link
+                        to={`/orders/${delivery.id}/detail`}
+                        className="btn btn-sm btn-outline-primary me-1"
+                      >
+                        View
+                      </Link>
+                    </td>
                   </tr>
                 ))}
               </tbody>
@@ -108,6 +121,7 @@ function Delivery() {
                   <th>Pricing</th>
                   <th>Employee</th>
                   <th>Cost</th>
+                  <th>Action</th>
                 </tr>
               </thead>
               <tbody>
@@ -119,6 +133,14 @@ function Delivery() {
                     <td>{delivery.deliveryPlan.pricing || "N/A"}</td>
                     <td>{delivery.deliveryPlan.employee}</td>
                     <td>{delivery.deliveryPlan.cost}</td>
+                    <td>
+                      <Link
+                        to={`/orders/${delivery.id}/detail`}
+                        className="btn btn-sm btn-outline-primary me-1"
+                      >
+                        View
+                      </Link>
+                    </td>
                   </tr>
                 ))}
               </tbody>
