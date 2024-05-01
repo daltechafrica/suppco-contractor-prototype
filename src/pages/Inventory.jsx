@@ -19,8 +19,9 @@ function Inventory() {
           </span>
           Inventory
         </h5>
+        <hr />
 
-        <section>
+        <section className="mt-3 mb-3">
           <div className="table-responsive">
             <table className="table table-bordered">
               <thead>
