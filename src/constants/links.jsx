@@ -23,6 +23,7 @@ const appLinks = {
   BuildersPlantSupplierDetail: "/supplier/:supplierId/detail",
   BuildersContractorInputDetail: "/contractor-input/:contractorInputId/detail",
   ShellEquipmentSuppliers: "/shell-equipment-suppliers",
+  Settings: "/settings",
 };
 
 export { appLinks };

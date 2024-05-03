@@ -73,6 +73,11 @@ function Navbar() {
                   Employees
                 </Link>
               </li>
+              <li className="nav-item">
+                <Link className="nav-link" to={appLinks.Settings}>
+                  Settings
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

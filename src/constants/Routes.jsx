@@ -46,6 +46,7 @@ const AggregateContractorInput = React.lazy(() =>
   import("../pages/AggregateContractorInput")
 );
 const AggregatePreview = React.lazy(() => import("../pages/AggregatePreview"));
+const Settings = React.lazy(() => import("../pages/Settings"));
 
 function BaseRouter() {
   return (
@@ -131,6 +132,7 @@ function BaseRouter() {
               path={`/preview/:id/submit`}
               element={<AggregatePreview />}
             />
+            <Route path={appLinks.Settings} element={<Settings />} />
           </Routes>
           <Footer />
         </Suspense>
