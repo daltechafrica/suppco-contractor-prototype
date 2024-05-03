@@ -10,7 +10,7 @@ function SupplierOrdersPage({ location }) {
 
   return (
     <div className="container py-3 mb-3">
-      <h5>Completed Orders</h5>
+      <h5>Orders</h5>
       <hr />
       <div className="table-responsive">
         <table className="table table-bordered">
@@ -19,6 +19,7 @@ function SupplierOrdersPage({ location }) {
               <th>Order ID</th>
               <th>Product</th>
               <th>Supplier Name</th>
+              <th>VAT</th>
               <th>Site</th>
               <th>Date</th>
               <th>Action</th>
@@ -30,6 +31,7 @@ function SupplierOrdersPage({ location }) {
                 <td>{order.id}</td>
                 <td>{order.product}</td>
                 <td>{order.supplierDetail.name}</td>
+                <td>{order.paymentDetail?.vat}</td>
                 <td>{order.deliveryPlan.destination}</td>
                 <td>{order.created}</td>
                 <td>
