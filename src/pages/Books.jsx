@@ -6,26 +6,20 @@ import { appLinks } from "../constants/links";
 function Books() {
   const [selectedMonth, setSelectedMonth] = useState("");
   const [selectedYear, setSelectedYear] = useState("");
-  const completedOrders = orders.filter(
-    (order) => order.status === "Completed"
-  );
 
-  const totalCompletedOrdersAmount = completedOrders.reduce(
-    (sum, order) => sum + order.finalTotal,
-    0
-  );
-
-  const activeOrders = orders.filter((order) => order.status === "Active");
-  const totalActiveOrdersAmount = activeOrders.reduce(
-    (sum, order) => sum + order.finalTotal,
-    0
-  );
-
-  const pendingOrders = orders.filter((order) => order.status === "Pending");
-  const totalPendingOrdersAmount = pendingOrders.reduce(
-    (sum, order) => sum + order.finalTotal,
-    0
-  );
+  // Function to group orders by supplier
+  const groupOrdersBySupplier = (orders) => {
+    return orders.reduce((acc, order) => {
+      const {
+        supplierDetail: { name },
+        paymentDetail: { vat },
+      } = order;
+      acc[name] = acc[name] || { vat: 0, orders: [] };
+      acc[name].vat += parseFloat(vat);
+      acc[name].orders.push(order);
+      return acc;
+    }, {});
+  };
 
   const handleMonthChange = (e) => {
     setSelectedMonth(e.target.value);
@@ -35,18 +29,18 @@ function Books() {
     setSelectedYear(e.target.value);
   };
 
-  const filteredOrders = completedOrders.filter((order) => {
+  // Filter orders based on completion status
+  const filteredOrders = orders.filter((order) => {
     const orderDate = new Date(order.created);
     return (
+      order.status === "Completed" &&
       orderDate.getMonth() + 1 === parseInt(selectedMonth) &&
       orderDate.getFullYear() === parseInt(selectedYear)
     );
   });
 
-  const totalVAT = filteredOrders.reduce(
-    (sum, order) => sum + order.paymentDetail.vat,
-    0
-  );
+  // Group filtered orders by supplier
+  const ordersBySupplier = groupOrdersBySupplier(filteredOrders);
 
   const monthNames = [
     "January",
@@ -62,6 +56,27 @@ function Books() {
     "November",
     "December",
   ];
+
+  // Calculate total amounts for pending, active, and completed payments
+  const pendingOrders = orders.filter((order) => order.status === "Pending");
+  const totalPendingOrdersAmount = pendingOrders.reduce(
+    (sum, order) => sum + order.finalTotal,
+    0
+  );
+
+  const activeOrders = orders.filter((order) => order.status === "Active");
+  const totalActiveOrdersAmount = activeOrders.reduce(
+    (sum, order) => sum + order.finalTotal,
+    0
+  );
+
+  const completedOrders = orders.filter(
+    (order) => order.status === "Completed"
+  );
+  const totalCompletedOrdersAmount = completedOrders.reduce(
+    (sum, order) => sum + order.finalTotal,
+    0
+  );
 
   return (
     <>
@@ -118,7 +133,6 @@ function Books() {
         <hr />
 
         <section className="mb-3">
-          <h6>Generate VAT for Specific Month</h6>
           <div className="mb-3">
             <label htmlFor="month" className="form-label me-2">
               Month:
@@ -132,7 +146,7 @@ function Books() {
             >
               <option value="">Select Month</option>
               {monthNames.map((month, index) => (
-                <option key={index + 1} value={index + 1}>
+                <option key={index} value={index + 1}>
                   {month}
                 </option>
               ))}
@@ -151,46 +165,33 @@ function Books() {
               className="form-control me-2"
             />
           </div>
-          <div className="mb-3">
-            <p className="fw-bold text-uppercase text-decoration-underline">
-              Total VAT for {selectedMonth && monthNames[selectedMonth - 1]}/
-              {selectedYear}: {totalVAT} Ksh
-            </p>
-          </div>
           <div className="table-responsive">
             <table className="table table-bordered">
               <thead>
                 <tr>
-                  <th>Order ID</th>
-                  <th>Product</th>
-                  <th>VAT</th>
                   <th>Supplier Name</th>
-                  <th>Site</th>
-                  <th>Date</th>
-                  <th>Status</th>
+                  <th>Total VAT</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
-                {filteredOrders.map((item) => (
-                  <tr key={item.id}>
-                    <td>{item.id}</td>
-                    <td>{item.product}</td>
-                    <td>{item.paymentDetail.vat}</td>
-                    <td>{item.supplierDetail.name}</td>
-                    <td>{item.deliveryPlan.destination}</td>
-                    <td>{item.created}</td>
-                    <td>{item.status}</td>
-                    <td>
-                      <Link
-                        to={`/orders/${item.id}/detail`}
-                        className="btn btn-outline-primary btn-sm"
-                      >
-                        View
-                      </Link>
-                    </td>
-                  </tr>
-                ))}
+                {/* Render table rows for each supplier */}
+                {Object.entries(ordersBySupplier).map(
+                  ([supplierName, { vat, orders }]) => (
+                    <tr key={supplierName}>
+                      <td>{supplierName}</td>
+                      <td>{vat.toFixed(2)} Ksh</td>
+                      <td>
+                        <Link
+                          to="/supplier/Supplier%201"
+                          className="btn btn-outline-primary btn-sm"
+                        >
+                          View Orders
+                        </Link>
+                      </td>
+                    </tr>
+                  )
+                )}
               </tbody>
             </table>
           </div>
