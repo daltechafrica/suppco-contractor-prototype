@@ -4,6 +4,7 @@ import { appLinks } from "./links";
 import Navbar from "../layouts/Navbar";
 import Footer from "../layouts/Footer";
 
+const Splash = React.lazy(() => import("../pages/Splash"));
 const Dashboard = React.lazy(() => import("../pages/Dashboard"));
 const Orders = React.lazy(() => import("../pages/Orders"));
 const Delivery = React.lazy(() => import("../pages/Delivery"));
@@ -72,7 +73,8 @@ function BaseRouter() {
         >
           <Navbar />
           <Routes>
-            <Route exact path={appLinks.Dashboard} element={<Dashboard />} />
+            <Route exact path={appLinks.Splash} element={<Splash />} />
+            <Route path={appLinks.Dashboard} element={<Dashboard />} />
             <Route path={appLinks.Orders} element={<Orders />} />
             <Route path={appLinks.Delivery} element={<Delivery />} />
             <Route path={appLinks.Inventory} element={<Inventory />} />

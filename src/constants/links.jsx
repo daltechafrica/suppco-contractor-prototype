@@ -1,5 +1,6 @@
 const appLinks = {
-  Dashboard: "/",
+  Splash: "/",
+  Dashboard: "/dashboard",
   Orders: "/orders",
   Delivery: "/delivery",
   Inventory: "/inventory",

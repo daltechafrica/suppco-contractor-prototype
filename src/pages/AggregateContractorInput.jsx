@@ -31,18 +31,29 @@ function AggregateContractorInput() {
             <div>
               <h5 className="fw-bold">Contractor Input</h5>
               <hr />
-              <div className="mb-3">
-                <label htmlFor="employee" className="form-label">
-                  Allocate Staff
-                </label>
-                <select name="employee" id="" className="form-select">
-                  <option value="">Select an employee...</option>
-                  {employees?.map((employee) => (
-                    <>
-                      <option value={employee?.id}>{employee?.name}</option>
-                    </>
-                  ))}
-                </select>
+              <div className="row">
+                <div className="col-md-6 col-sm-12">
+                  <div className="mb-3">
+                    <label htmlFor="quantity" className="form-label">
+                      Quantity
+                    </label>
+                    <input type="number" className="form-control" />
+                  </div>
+                </div>
+
+                <div className="col-md-6 col-sm-12">
+                  <label htmlFor="employee" className="form-label">
+                    Allocate Staff
+                  </label>
+                  <select name="employee" id="" className="form-select">
+                    <option value="">Select an employee...</option>
+                    {employees?.map((employee) => (
+                      <>
+                        <option value={employee?.id}>{employee?.name}</option>
+                      </>
+                    ))}
+                  </select>
+                </div>
               </div>
             </div>
 
