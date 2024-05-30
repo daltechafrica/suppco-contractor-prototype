@@ -35,22 +35,68 @@ function ShellEquipmentDetail() {
                 </div>
 
                 <div className="d-flex align-content-center justify-content-between">
-                  <div>
-                    <form role="search" className="d-flex">
-                      <input
-                        type="search"
-                        className="form-control border-primary me-2"
-                        placeholder="Search by site"
-                        value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
-                      />
-                    </form>
+                  <div className="d-flex align-content-center justify-content-between">
+                    <div>
+                      <form role="search" className="d-flex">
+                        <input
+                          type="search"
+                          className="form-control border-primary me-2"
+                          placeholder="Search by site"
+                          value={searchQuery}
+                          onChange={(e) => setSearchQuery(e.target.value)}
+                        />
+                      </form>
+                    </div>
+
+                    <div>
+                      <Link className="btn btn-primary">Order</Link>
+                    </div>
                   </div>
 
                   <div>
-                    <Link className="btn btn-primary">Order</Link>
+                    <Link className="btn btn-outline-primary ms-2">Cart</Link>
                   </div>
                 </div>
+              </div>
+            </section>
+            <hr />
+            <section>
+              <div className="table-responsive mt-3">
+                <table className="table table-bordered caption-top">
+                  <caption>{selectedItem?.item} in your possession</caption>
+                  <thead>
+                    <tr>
+                      <th>Site</th>
+
+                      <th>Size</th>
+                      <th>Shape</th>
+                      <th>Variation</th>
+                      <th>Wood Species</th>
+                      <th>Grade</th>
+                      <th>Treatment</th>
+                      <th>Surface Finish</th>
+                      <th>Other</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filteredLocations?.map((location) => (
+                      <>
+                        <tr key={location?.id}>
+                          <td>{location.site.name}</td>
+
+                          <td>{location.size}</td>
+                          <td>{location.shape}</td>
+                          <td>{location.variation}</td>
+                          <td>{location.woodSpecies}</td>
+                          <td>{location.grade}</td>
+                          <td>{location.treatment}</td>
+                          <td>{location.surfaceFinish}</td>
+                          <td>{location.other}</td>
+                        </tr>
+                      </>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </section>
           </>
@@ -106,11 +152,7 @@ function ShellEquipmentDetail() {
                       <th>Gradiation</th>
                       <th>Size</th>
                       <th>Shape</th>
-                      <th>Variation</th>
-                      <th>Wood Species</th>
-                      <th>Grade</th>
-                      <th>Treatment</th>
-                      <th>Surface Finish</th>
+
                       <th>Other</th>
                     </tr>
                   </thead>
@@ -124,11 +166,7 @@ function ShellEquipmentDetail() {
                           <td>{location.gradiation}</td>
                           <td>{location.size}</td>
                           <td>{location.shape}</td>
-                          <td>{location.variation}</td>
-                          <td>{location.woodSpecies}</td>
-                          <td>{location.grade}</td>
-                          <td>{location.treatment}</td>
-                          <td>{location.surfaceFinish}</td>
+
                           <td>{location.other}</td>
                         </tr>
                       </>
