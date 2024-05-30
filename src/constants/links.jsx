@@ -1,6 +1,9 @@
 const appLinks = {
   Splash: "/",
   Dashboard: "/dashboard",
+  Cart: "/cart",
+  CartSuppliers: "/cart-suppliers",
+  CartContractorInput: "/cart-contractor-input/:id/detail",
   Orders: "/orders",
   Delivery: "/delivery",
   Inventory: "/inventory",

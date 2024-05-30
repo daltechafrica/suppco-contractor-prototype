@@ -20,89 +20,163 @@ function ShellEquipmentDetail() {
   return (
     <>
       <div className="container-fluid py-3">
-        <section>
-          <div className="d-flex align-content-center justify-content-between mb-3">
-            <div>
-              <Link
-                to={appLinks?.ShellEquipment}
-              >
-                <i className="bi bi-arrow-left me-1"></i>
-              </Link>
-            </div>
+        {selectedItem?.item === "Lumber truss - kin dried" && (
+          <>
+            <section>
+              <div className="d-flex align-content-center justify-content-between mb-3">
+                <div>
+                  <Link to={appLinks?.ShellEquipment}>
+                    <i className="bi bi-arrow-left me-1"></i>
+                  </Link>
+                </div>
 
-            <div>
-              <h2 className="fw-bold">{selectedItem?.item}</h2>
-            </div>
+                <div>
+                  <h2 className="fw-bold">{selectedItem?.item}</h2>
+                </div>
 
-            <div className="d-flex align-content-center justify-content-between">
-              <div>
-                <form role="search" className="d-flex">
-                  <input
-                    type="search"
-                    className="form-control border-primary me-2"
-                    placeholder="Search by site"
-                    value={searchQuery}
-                    onChange={(e) => setSearchQuery(e.target.value)}
-                  />
-                </form>
+                <div className="d-flex align-content-center justify-content-between">
+                  <div className="d-flex align-content-center justify-content-between">
+                    <div>
+                      <form role="search" className="d-flex">
+                        <input
+                          type="search"
+                          className="form-control border-primary me-2"
+                          placeholder="Search by site"
+                          value={searchQuery}
+                          onChange={(e) => setSearchQuery(e.target.value)}
+                        />
+                      </form>
+                    </div>
+
+                    <div>
+                      <Link className="btn btn-primary">Order</Link>
+                    </div>
+                  </div>
+
+                  <div>
+                    <Link to={appLinks?.Cart} className="btn btn-outline-primary ms-2">Cart</Link>
+                  </div>
+                </div>
               </div>
+            </section>
+            <hr />
+            <section>
+              <div className="table-responsive mt-3">
+                <table className="table table-bordered caption-top">
+                  <caption>{selectedItem?.item} in your possession</caption>
+                  <thead>
+                    <tr>
+                      <th>Site</th>
 
-              <div>
-                <Link
-                  to={`/order/${shellItemId}/aggregate`}
-                  className="btn btn-primary"
-                >
-                  Order
-                </Link>
-              </div>
-            </div>
-          </div>
-        </section>
-        <hr />
-
-        <section>
-          <div className="table-responsive mt-3">
-            <table className="table table-bordered caption-top">
-              <caption>{selectedItem?.item} in your possession</caption>
-              <thead>
-                <tr>
-                  <th>Site</th>
-                  <th>Density</th>
-                  <th>Moisture Content</th>
-                  <th>Gradiation</th>
-                  <th>Size</th>
-                  <th>Shape</th>
-                  <th>Variation</th>
-                  <th>Wood Species</th>
-                  <th>Grade</th>
-                  <th>Treatment</th>
-                  <th>Surface Finish</th>
-                  <th>Other</th>
-                </tr>
-              </thead>
-              <tbody>
-                {filteredLocations?.map((location) => (
-                  <>
-                    <tr key={location?.id}>
-                      <td>{location.site.name}</td>
-                      <td>{location.density}</td>
-                      <td>{location.moistureContent}</td>
-                      <td>{location.gradiation}</td>
-                      <td>{location.size}</td>
-                      <td>{location.shape}</td>
-                      <td>{location.variation}</td>
-                      <td>{location.woodSpecies}</td>
-                      <td>{location.grade}</td>
-                      <td>{location.treatment}</td>
-                      <td>{location.surfaceFinish}</td>
-                      <td>{location.other}</td>
+                      <th>Size</th>
+                      <th>Shape</th>
+                      <th>Variation</th>
+                      <th>Wood Species</th>
+                      <th>Grade</th>
+                      <th>Treatment</th>
+                      <th>Surface Finish</th>
+                      <th>Other</th>
                     </tr>
-                  </>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
+                  </thead>
+                  <tbody>
+                    {filteredLocations?.map((location) => (
+                      <>
+                        <tr key={location?.id}>
+                          <td>{location.site.name}</td>
+
+                          <td>{location.size}</td>
+                          <td>{location.shape}</td>
+                          <td>{location.variation}</td>
+                          <td>{location.woodSpecies}</td>
+                          <td>{location.grade}</td>
+                          <td>{location.treatment}</td>
+                          <td>{location.surfaceFinish}</td>
+                          <td>{location.other}</td>
+                        </tr>
+                      </>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </>
+        )}
+        {selectedItem?.item === "River Sand" && (
+          <>
+            <section>
+              <div className="d-flex align-content-center justify-content-between mb-3">
+                <div>
+                  <Link to={appLinks?.ShellEquipment}>
+                    <i className="bi bi-arrow-left me-1"></i>
+                  </Link>
+                </div>
+
+                <div>
+                  <h2 className="fw-bold">{selectedItem?.item}</h2>
+                </div>
+
+                <div className="d-flex align-content-center justify-content-between">
+                  <div>
+                    <form role="search" className="d-flex">
+                      <input
+                        type="search"
+                        className="form-control border-primary me-2"
+                        placeholder="Search by site"
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                      />
+                    </form>
+                  </div>
+
+                  <div>
+                    <Link
+                      to={`/order/${shellItemId}/aggregate`}
+                      className="btn btn-primary"
+                    >
+                      Order
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </section>
+            <hr />
+            <section>
+              <div className="table-responsive mt-3">
+                <table className="table table-bordered caption-top">
+                  <caption>{selectedItem?.item} in your possession</caption>
+                  <thead>
+                    <tr>
+                      <th>Site</th>
+                      <th>Density</th>
+                      <th>Moisture Content</th>
+                      <th>Gradiation</th>
+                      <th>Size</th>
+                      <th>Shape</th>
+
+                      <th>Other</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {filteredLocations?.map((location) => (
+                      <>
+                        <tr key={location?.id}>
+                          <td>{location.site.name}</td>
+                          <td>{location.density}</td>
+                          <td>{location.moistureContent}</td>
+                          <td>{location.gradiation}</td>
+                          <td>{location.size}</td>
+                          <td>{location.shape}</td>
+
+                          <td>{location.other}</td>
+                        </tr>
+                      </>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </>
+        )}
       </div>
     </>
   );
