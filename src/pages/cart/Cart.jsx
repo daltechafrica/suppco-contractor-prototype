@@ -7,14 +7,24 @@ function Cart() {
   return (
     <>
       <div className="container py-3 mb-3">
-        <h5>
-          <span>
-            <Link to={appLinks?.Inventory}>
-              <i className="bi bi-arrow-left me-1"></i>
-            </Link>
-          </span>
-          Cart
-        </h5>
+        <div className="d-flex align-content-center justify-content-between">
+          <h5>
+            <span>
+              <Link to={appLinks?.Inventory}>
+                <i className="bi bi-arrow-left me-1"></i>
+              </Link>
+            </span>
+            Cart
+          </h5>
+
+          <Link
+            to={appLinks?.CartSuppliers}
+            className="btn btn-outline-primary"
+          >
+            Find Suppliers
+          </Link>
+        </div>
+
         <hr />
 
         <section className="mb-3">
