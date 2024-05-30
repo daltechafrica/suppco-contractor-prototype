@@ -54,7 +54,7 @@ function ShellEquipmentDetail() {
                   </div>
 
                   <div>
-                    <Link className="btn btn-outline-primary ms-2">Cart</Link>
+                    <Link to={appLinks?.Cart} className="btn btn-outline-primary ms-2">Cart</Link>
                   </div>
                 </div>
               </div>

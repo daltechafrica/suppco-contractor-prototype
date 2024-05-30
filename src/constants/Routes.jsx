@@ -6,6 +6,7 @@ import Footer from "../layouts/Footer";
 
 const Splash = React.lazy(() => import("../pages/Splash"));
 const Dashboard = React.lazy(() => import("../pages/Dashboard"));
+const Cart = React.lazy(() => import("../pages/cart/Cart"));
 const Orders = React.lazy(() => import("../pages/Orders"));
 const Delivery = React.lazy(() => import("../pages/Delivery"));
 const Inventory = React.lazy(() => import("../pages/Inventory"));
@@ -75,6 +76,7 @@ function BaseRouter() {
           <Routes>
             <Route exact path={appLinks.Splash} element={<Splash />} />
             <Route path={appLinks.Dashboard} element={<Dashboard />} />
+            <Route path={appLinks.Cart} element={<Cart />} />
             <Route path={appLinks.Orders} element={<Orders />} />
             <Route path={appLinks.Delivery} element={<Delivery />} />
             <Route path={appLinks.Inventory} element={<Inventory />} />
