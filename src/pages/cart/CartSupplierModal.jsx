@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "react-bootstrap/Modal";
 import { Link } from "react-router-dom";
+import { appLinks } from "../../constants/links";
 
 function CartSupplierModal({ onClose, supplier }) {
   const product = supplier?.products;
@@ -130,7 +131,7 @@ function CartSupplierModal({ onClose, supplier }) {
 
         <div className="modal-footer">
           <Link
-            to={`/aggregate/${supplier.id}/order-form`}
+            to={appLinks?.CartContractorInput}
             className="btn btn-sm btn-outline-success"
           >
             Select Supplier
