@@ -4,6 +4,7 @@ const appLinks = {
   Cart: "/cart",
   CartSuppliers: "/cart-suppliers",
   CartContractorInput: "/cart-contractor-input/:id/detail",
+  CartConfirmation: "/cart-confirmation/:id/confirm",
   Orders: "/orders",
   Delivery: "/delivery",
   Inventory: "/inventory",

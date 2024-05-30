@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from "react";
 import { Link, useParams } from "react-router-dom";
 import { appLinks } from "../../constants/links";
@@ -92,7 +93,115 @@ function CartContractorInput() {
             {/* payment details */}
             <h5 className="fw-bold">Payment Details</h5>
             <hr />
-            
+            <div className="mb-3">
+              <label htmlFor="total" className="form-label">
+                Delivery Charges
+              </label>
+              <input
+                type="number"
+                disabled
+                placeholder="2000"
+                className="form-control"
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="total" className="form-label">
+                Total - (Inclusive of VAT)
+              </label>
+              <input
+                type="number"
+                disabled
+                placeholder="230000"
+                className="form-control"
+              />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="plans" className="form-label">
+                Payment Plan
+              </label>
+              <select name="plans" id="" className="form-select">
+                <option value="">Choose an option</option>
+                <option value="50/50">Fixed | 50-50</option>
+                <option value="upfront">Fixed | Upfront</option>
+                <option value="negotiable">Negotiable | Plan</option>
+              </select>
+            </div>
+
+            <hr />
+
+            <h5 className="fw-bold">Payment Breakdown</h5>
+            <p>In the event of negotiable payment</p>
+            <p>Deposit paid first</p>
+            <hr />
+            <div className="table-responsive">
+              <table className="table table-bordered">
+                <thead>
+                  <tr>
+                    <th>Payment No.</th>
+                    <th>Percentage %</th>
+                    <th>Amount</th>
+                    <th>Balance</th>
+                    <th>Date</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>1</td>
+                    <td>20</td>
+                    <td>20000</td>
+                    <td>140000</td>
+                    <td>01/01/2023</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div className="mt-2">
+              <p className="fw-semibold">Complete the plan</p>
+              <form>
+                <div className="mb-3">
+                  <div className="row">
+                    <div className="col-md-6 col-sm-12 mb-2">
+                      <label htmlFor="amount" className="form-label">
+                        Enter Percentage
+                      </label>
+                      <input type="number" className="form-control" />
+                    </div>
+                    <div className="col-md-6 col-sm-12 mb-2">
+                      <label htmlFor="amount" className="form-label">
+                        Expected Date
+                      </label>
+                      <input type="date" className="form-control" />
+                    </div>
+                  </div>
+                  <button className="btn btn-sm btn-outline-primary">
+                    Add Plan
+                  </button>
+                </div>
+              </form>
+            </div>
+
+            <div className="mb-3">
+              <div className="d-flex align-content-center justify-content-between mb-3">
+                <div>
+                  <Link
+                    to={appLinks?.CartSuppliers}
+                    className="btn btn-sm btn-outline-danger"
+                  >
+                    Cancel
+                  </Link>
+                </div>
+                <div>
+                  <Link
+                    to={`/cart-confirmation/${id}/confirm`}
+                    className="btn btn-sm btn-outline-success"
+                  >
+                    Proceed
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <hr />
           </form>
         </section>
       </div>

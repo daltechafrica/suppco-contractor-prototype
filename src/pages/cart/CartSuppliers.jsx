@@ -11,7 +11,7 @@ function CartSuppliers() {
       <div className="container py-3">
         <h5>
           <span>
-            <Link to={appLinks?.ShellEquipment}>
+            <Link to={appLinks?.Cart}>
               <i className="bi bi-arrow-left me-1"></i>
             </Link>
           </span>
@@ -30,10 +30,6 @@ function CartSuppliers() {
                       <p className="card-text">
                         <strong>Location: </strong>
                         {supplier?.address}
-                      </p>
-                      <p className="card-text">
-                        <strong>Rate: </strong>
-                        {supplier?.paymentConditions?.rate}
                       </p>
                       <Link
                         onClick={() => setCartSupplier(supplier?.id)}
