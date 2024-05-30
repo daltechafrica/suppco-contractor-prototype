@@ -11,6 +11,7 @@ const CartContractorInput = React.lazy(() =>
   import("../pages/cart/CartContractorInput")
 );
 const CartSuppliers = React.lazy(() => import("../pages/cart/CartSuppliers"));
+const CartConfirmation = React.lazy(() => import("../pages/cart/CartConfirmation"));
 const Orders = React.lazy(() => import("../pages/Orders"));
 const Delivery = React.lazy(() => import("../pages/Delivery"));
 const Inventory = React.lazy(() => import("../pages/Inventory"));
@@ -85,6 +86,10 @@ function BaseRouter() {
             <Route
               path={appLinks.CartContractorInput}
               element={<CartContractorInput />}
+            />
+            <Route
+              path={appLinks.CartConfirmation}
+              element={<CartConfirmation />}
             />
             <Route path={appLinks.Orders} element={<Orders />} />
             <Route path={appLinks.Delivery} element={<Delivery />} />
