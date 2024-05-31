@@ -33,7 +33,6 @@ function Cart() {
               <caption>Items in your cart</caption>
               <thead>
                 <tr>
-                  <th>Site</th>
                   <th>Size</th>
                   <th>Shape</th>
                   <th>Variation</th>
@@ -42,7 +41,6 @@ function Cart() {
                   <th>Treatment</th>
                   <th>Surface Finish</th>
                   <th>Quantity</th>
-                  <th>Rate</th>
                   <th>Other</th>
                 </tr>
               </thead>
@@ -50,7 +48,6 @@ function Cart() {
                 {lumberTruss?.map((location) => (
                   <>
                     <tr key={location?.id}>
-                      <td>{location.site}</td>
                       <td>{location.size}</td>
                       <td>{location.shape}</td>
                       <td>{location.variation}</td>
@@ -59,7 +56,6 @@ function Cart() {
                       <td>{location.treatment}</td>
                       <td>{location.surfaceFinish}</td>
                       <td>{location.quantity}</td>
-                      <td>{location.rate}</td>
                       <td>{location.other}</td>
                     </tr>
                   </>
