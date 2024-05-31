@@ -26,7 +26,7 @@ function CartConfirmation() {
       <div className="container py-3">
         <h5>
           <span>
-            <Link to={appLinks?.BuildersContractorInput}>
+            <Link to={appLinks?.Cart}>
               <i className="bi bi-arrow-left me-1"></i>
             </Link>
           </span>
