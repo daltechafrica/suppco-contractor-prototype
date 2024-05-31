@@ -54,12 +54,6 @@ function Sites() {
                   <input className="form-control" type="text" id="address" />
                 </div>
                 <div className="mb-3">
-                  <label className="form-label" htmlFor="phone">
-                    Phone
-                  </label>
-                  <input className="form-control" type="text" id="phone" />
-                </div>
-                <div className="mb-3">
                   <label className="form-label" htmlFor="image">
                     Image
                   </label>
