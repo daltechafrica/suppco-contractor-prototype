@@ -252,8 +252,8 @@ function CartConfirmation() {
               <div className="row mb-3">
                 <div className="col-md-6 col-sm-12">
                   <p className="card-text font-monospace">
-                    Supplier Name: {placedOrder?.supplierDetail?.name} <br />
-                    Supplier Company: {placedOrder?.supplierCompany?.name}
+                    Supplier Name: {placedOrder?.supplierName} <br />
+                    Supplier Company: {placedOrder?.name}
                   </p>
                 </div>
                 <div className="col-md-6 col-sm-12">

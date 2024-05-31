@@ -88,6 +88,7 @@ const lumberTruss = [
 const lumberTrussSuppliers = [
   {
     id: 1,
+    supplierName: "Supplier A",
     name: "Big Suppliers",
     username: "bigsuppliers",
     email: "bigsuppliers@me.com",
