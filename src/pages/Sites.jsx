@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { appLinks } from "../constants/links";
 import { sites } from "../data/sites";
 import Modal from "react-bootstrap/Modal";
+import { employees } from "../data/employees";
 
 function Sites() {
   const [show, setShow] = useState(false);
@@ -63,6 +64,21 @@ function Sites() {
                     Image
                   </label>
                   <input className="form-control" type="text" id="image" />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="administrator" className="form-label">
+                    Site Administrator
+                  </label>
+                  <select name="administrator" id="" className="form-select">
+                    <option value="">Select Administrator</option>
+                    {employees?.map((employee) => (
+                      <>
+                        <option value={employee.id}>
+                          {employee?.name} - {employee?.phone}
+                        </option>
+                      </>
+                    ))}
+                  </select>
                 </div>
 
                 <div className="mb-3">
