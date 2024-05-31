@@ -50,15 +50,33 @@ function CartContractorInput() {
             <hr />
             <h5 className="fw-bold">Delivery Details</h5>
             <hr />
-            <div className="mb-3">
-              <label htmlFor="delivery" className="form-label">
-                Delivery Option
-              </label>
-              <select name="delivery" className="form-select" id="">
-                <option value="">Choose an option</option>
-                <option value="self">Self Collect</option>
-                <option value="supplier">Supplier</option>
-              </select>
+            <div className="row">
+              <div className="col-md-6 col-sm-12">
+                <div className="mb-3">
+                  <label htmlFor="delivery" className="form-label">
+                    Delivery Option
+                  </label>
+                  <select name="delivery" className="form-select" id="">
+                    <option value="">Choose an option</option>
+                    <option value="self">Self Collect</option>
+                    <option value="supplier">Supplier</option>
+                  </select>
+                </div>
+              </div>
+
+              <div className="col-md-6 col-sm-12">
+                <div className="mb-3">
+                  <label htmlFor="destination" className="form-label">
+                    Delivery Destination
+                  </label>
+                  <select name="site" id="" className="form-select">
+                    <option value="Site A">Site A</option>
+                    <option value="Site B">Site B</option>
+                    <option value="Site C">Site C</option>
+                    <option value="Site D">Site D</option>
+                  </select>
+                </div>
+              </div>
             </div>
             <div className="row">
               <div className="col-md-9 col-sm-12">
