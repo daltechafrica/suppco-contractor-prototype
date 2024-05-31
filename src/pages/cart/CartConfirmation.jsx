@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { appLinks } from "../../constants/links";
-import { lumberTruss, lumberTrussSuppliers } from "../../data/cartData";
+import { lumberTrussSuppliers } from "../../data/cartData";
 import Modal from "react-bootstrap/Modal";
 
 function CartConfirmation() {
@@ -62,49 +62,6 @@ function CartConfirmation() {
           {/* product info */}
           <div>
             <h6 className="fw-bold">Product Information</h6>
-            <div className="card mb-3">
-              <h6 className="card-header bg-white">Products Ordered</h6>
-              <div className="card-body">
-                <div className="table-responsive">
-                  <table className="table table-bordered">
-                    <thead>
-                      <tr>
-                        <th>Site</th>
-                        <th>Size</th>
-                        <th>Shape</th>
-                        <th>Variation</th>
-                        <th>Wood Species</th>
-                        <th>Grade</th>
-                        <th>Treatment</th>
-                        <th>Surface Finish</th>
-                        <th>Quantity</th>
-                        <th>Rate</th>
-                        <th>Other</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {lumberTruss?.map((location) => (
-                        <>
-                          <tr key={location?.id}>
-                            <td>{location.site}</td>
-                            <td>{location.size}</td>
-                            <td>{location.shape}</td>
-                            <td>{location.variation}</td>
-                            <td>{location.woodSpecies}</td>
-                            <td>{location.grade}</td>
-                            <td>{location.treatment}</td>
-                            <td>{location.surfaceFinish}</td>
-                            <td>{location.quantity}</td>
-                            <td>{location.rate}</td>
-                            <td>{location.other}</td>
-                          </tr>
-                        </>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
 
             <div className="card mb-3">
               <h6 className="card-header bg-white">Products Available</h6>
