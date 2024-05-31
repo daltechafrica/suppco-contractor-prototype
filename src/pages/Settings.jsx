@@ -238,6 +238,45 @@ function Settings() {
             </div>
           </div>
         </section>
+
+        <section>
+          <div className="card">
+            <h6 className="card-header bg-white">Payment Settings</h6>
+            <div className="card-body">
+              <form>
+                <p className="card-title">Update Card Settings</p>
+                <div className="mb-3">
+                  <label htmlFor="cardNumber" className="form-label">
+                    Card Number
+                  </label>
+                  <input type="text" className="form-control" id="cardNumber" />
+                </div>
+
+                <div className="row">
+                  <div className="col-md-6 col-sm-12 mb-3">
+                    <label htmlFor="cardExpiry" className="form-label">
+                      Expiry Date
+                    </label>
+                    <input
+                      type="date"
+                      className="form-control"
+                      id="cardExpiry"
+                    />
+                  </div>
+                  <div className="col-md-6 col-sm-12 mb-3">
+                    <label htmlFor="cardCVC" className="form-label">
+                      CVC
+                    </label>
+                    <input type="text" className="form-control" id="cardCVC" />
+                  </div>
+                </div>
+                <div className="mb-3">
+                  <button className="btn btn-primary">Update</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
       </div>
     </>
   );
