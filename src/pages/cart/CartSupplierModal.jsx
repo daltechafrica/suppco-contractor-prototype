@@ -1,6 +1,7 @@
 import React from "react";
 import Modal from "react-bootstrap/Modal";
 import { Link } from "react-router-dom";
+import { lumberTruss } from "../../data/cartData";
 
 function CartSupplierModal({ onClose, supplier }) {
   const product = supplier?.products;
@@ -39,6 +40,43 @@ function CartSupplierModal({ onClose, supplier }) {
               <strong>Location: </strong>
               {supplier?.address}
             </p>
+            <hr />
+            <h5 className="fw-bold">Product Specifications In Cart</h5>
+            <div className="table-responsive">
+              <table className="table table-bordered caption-top">
+                <caption>Items in your cart</caption>
+                <thead>
+                  <tr>
+                    <th>Size</th>
+                    <th>Shape</th>
+                    <th>Variation</th>
+                    <th>Wood Species</th>
+                    <th>Grade</th>
+                    <th>Treatment</th>
+                    <th>Surface Finish</th>
+                    <th>Quantity</th>
+                    <th>Other</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {lumberTruss?.map((location) => (
+                    <>
+                      <tr key={location?.id}>
+                        <td>{location.size}</td>
+                        <td>{location.shape}</td>
+                        <td>{location.variation}</td>
+                        <td>{location.woodSpecies}</td>
+                        <td>{location.grade}</td>
+                        <td>{location.treatment}</td>
+                        <td>{location.surfaceFinish}</td>
+                        <td>{location.quantity}</td>
+                        <td>{location.other}</td>
+                      </tr>
+                    </>
+                  ))}
+                </tbody>
+              </table>
+            </div>
             <hr />
             <h5 className="fw-bold">Product Specifications Available</h5>
             <div className="table-responsive">
